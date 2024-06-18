@@ -136,30 +136,29 @@ enum OnboardingError {
 
 extension DefaultsContainer {
     var isOnboarded: Factory<Bool> {
-        self(key: "isOnboarded") { false }
-            .singleton
+        self { false }
+            .key("isOnboarded")
     }
     
     var firstName: Factory<String> {
-        self(key: "firstName") { "" }
-            .singleton
+        self { "" }
+            .key("firstName")
     }
     
     var lastName: Factory<String> {
-        self(key: "lastName") { "" }
-            .singleton
+        self { "" }
+            .key("lastName")
     }
     
     var email: Factory<String> {
-        self(key: "email") { "" }
-            .singleton
+        self { "" }
+            .key("email")
     }
 }
 
 extension Container {
     var onboardingViewModel: Factory<OnboardingViewModel> {
-        self {
-            OnboardingViewModel()
-        }
+        self { OnboardingViewModel() }
+            .unique
     }
 }

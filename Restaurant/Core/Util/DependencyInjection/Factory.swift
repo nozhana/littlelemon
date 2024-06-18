@@ -20,7 +20,7 @@ struct Factory<ValueType> {
     init(_ container: SharedContainer, key: String? = nil, factory: @escaping () -> ValueType) {
         self.container = container
         self.key = key
-        self.type = .unique
+        self.type = .singleton
         self.factory = factory
     }
     
@@ -46,8 +46,12 @@ struct Factory<ValueType> {
 }
 
 extension Factory {
-    var singleton: Factory<ValueType> {
-        Factory(container, key: key, type: .singleton, factory: factory)
+    var unique: Self {
+        .init(container, key: key, type: .unique, factory: factory)
+    }
+    
+    func key(_ key: String) -> Self {
+        .init(container, key: key, type: type, factory: factory)
     }
 }
 

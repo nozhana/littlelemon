@@ -12,7 +12,7 @@ enum OnboardingFocus {
 }
 
 struct Onboarding: View {
-    @StateObject private var viewModel = Container.shared.onboardingViewModel()
+    @StateObject private var viewModel = Inject[\.onboardingViewModel]
     
     @State private var firstName: String = ""
     @State private var lastName: String = ""

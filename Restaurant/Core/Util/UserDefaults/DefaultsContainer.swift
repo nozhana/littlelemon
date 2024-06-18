@@ -30,16 +30,18 @@ struct DefaultsRepository: Repository {
 
 struct DefaultsContainer: SharedContainer, RepositoryProviding {
     let repository: Repository
+    
+    init(repository: DefaultsRepository) {
+        self.repository = repository
+    }
 }
 
 extension Container {
     private var userDefaultsRepository: Factory<DefaultsRepository> {
         self { DefaultsRepository(storage: .shared) }
-            .singleton
     }
     
     var userDefaults: Factory<DefaultsContainer> {
         self { DefaultsContainer(repository: userDefaultsRepository()) }
-            .singleton
     }
 }
