@@ -11,7 +11,7 @@ struct Menu: View {
     @StateObject private var viewModel = Inject[\.menuViewModel]
     
     @Environment(\.managedObjectContext) private var viewContext
-    @Environment(\.colorTheme) var colorTheme
+    @EnvironmentObject private var theme: ThemeUtil
     
     private var profileImageView: some View {
         if let profileImage = viewModel.profileImage {
@@ -33,11 +33,11 @@ struct Menu: View {
             profileImageView
                 .scaledToFill()
                 .frame(width: 44, height: 44)
-                .background(colorTheme[\.surface.secondary])
+                .background(theme.color[\.surface.secondary])
                 .clipShape(Circle())
         } // HStack
         .padding(.init(top: 20, leading: 24, bottom: 20, trailing: 24))
-        .background(colorTheme[\.surface.primary]) // TODO: Color.background
+        .background(theme.color[\.surface.primary]) // TODO: Color.background
     }
     
     private var heroView: some View {
@@ -45,15 +45,15 @@ struct Menu: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text("Little Lemon")
                     .font(.displayLarge)
-                    .foregroundStyle(colorTheme[\.text.title]) // TODO: Color.title
+                    .foregroundStyle(theme.color[\.text.title]) // TODO: Color.title
                 Text("Chicago")
                     .font(.subtitle)
-                    .foregroundStyle(colorTheme[\.text.contrast]) // TODO: Color.contrast
+                    .foregroundStyle(theme.color[\.text.contrast]) // TODO: Color.contrast
             } // VStack
             HStack(spacing: 18) {
                 Text("We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
                     .font(.leadText)
-                    .foregroundStyle(colorTheme[\.text.contrast]) // TODO: Color.contrast
+                    .foregroundStyle(theme.color[\.text.contrast]) // TODO: Color.contrast
                 Image("hero", bundle: .main)
                     .resizable()
                     .scaledToFill()
@@ -69,7 +69,7 @@ struct Menu: View {
             .buttonStyle(.plain)
         } // VStack
         .padding(24)
-        .background(colorTheme[\.surface.hero]) // TODO: Color.nandor
+        .background(theme.color[\.surface.hero]) // TODO: Color.nandor
     }
     
     private var menuListView: some View {
@@ -78,7 +78,7 @@ struct Menu: View {
                 if dishes.isEmpty {
                     Text("Loading")
                         .font(.highlight)
-                        .foregroundStyle(colorTheme[\.text.secondary])
+                        .foregroundStyle(theme.color[\.text.secondary])
                         .padding(.top, 16)
                     ProgressView()
                 }

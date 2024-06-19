@@ -12,7 +12,7 @@ import PhotosUI
 struct Profile: View {
     @StateObject private var viewModel = Inject[\.profileViewModel]
     @EnvironmentObject private var homeViewModel: HomeViewModel
-    @Environment(\.colorTheme) private var colorTheme
+    @EnvironmentObject private var theme: ThemeUtil
     
     @State private var firstName = ""
     @State private var lastName = ""
@@ -38,7 +38,7 @@ struct Profile: View {
             .overlay {
                 Circle()
                     .strokeBorder(lineWidth: 4)
-                    .foregroundStyle(.yellow) // TODO: Color.ripeLemon
+                    .foregroundStyle(theme.color[\.stroke.primary]) // TODO: Color.ripeLemon
             }
             .contextMenu {
                 Button("Choose a photo", systemImage: "photo.fill") {
@@ -64,7 +64,7 @@ struct Profile: View {
     private var tooltip: some View {
         Text("Hold your avatar to choose a new photo.")
             .font(.tagline)
-            .foregroundStyle(.secondary)
+            .foregroundStyle(theme.color[\.text.disabled])
     }
     
     private var logoutButton: some View {
@@ -107,15 +107,17 @@ struct Profile: View {
             Label(tag, systemImage: systemImage)
                 .imageScale(.large)
                 .font(.body)
+                .foregroundStyle(theme.color[\.text.primary])
             Spacer()
             TextField(placeholder, text: content)
                 .font(.highlight)
+                .foregroundStyle(theme.color[\.text.primary])
                 .textFieldStyle(.plain)
                 .padding()
                 .background {
                     if viewModel.isEditing {
                         RoundedRectangle.roundedRect8
-                            .fill(.black.opacity(0.06))
+                            .fill(theme.color[\.surface.secondary])
                     }
                 }
                 .frame(width: 160)

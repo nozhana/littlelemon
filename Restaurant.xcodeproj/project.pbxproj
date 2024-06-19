@@ -42,7 +42,6 @@
 		31C799E02C18C0A800F7FE55 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799DF2C18C0A800F7FE55 /* Repository.swift */; };
 		31D363EF2C2210F900B84BD3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363EE2C2210F900B84BD3 /* Colors.swift */; };
 		31D363F22C22143400B84BD3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F12C22143400B84BD3 /* Color+Extension.swift */; };
-		31D363F52C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */; };
 		31D363F72C22EA4500B84BD3 /* NetworkingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */; };
 		31D363F92C232CBE00B84BD3 /* PrimitiveColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F82C232CBE00B84BD3 /* PrimitiveColor.swift */; };
 		31D363FB2C232CE600B84BD3 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363FA2C232CE600B84BD3 /* ColorTheme.swift */; };
@@ -79,6 +78,7 @@
 		31E02CD02C1C3D3A00FD8E0C /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31E02CCC2C1C3D3A00FD8E0C /* Karla-Bold.ttf */; };
 		31E02CD32C1C3D9300FD8E0C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CD22C1C3D9300FD8E0C /* Fonts.swift */; };
 		31E02CE82C1C9EF300FD8E0C /* EditProfileForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CE72C1C9EF300FD8E0C /* EditProfileForm.swift */; };
+		31F6380E2C235DDF004837B5 /* ThemeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F6380D2C235DDF004837B5 /* ThemeUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,7 +118,6 @@
 		31C799DF2C18C0A800F7FE55 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		31D363EE2C2210F900B84BD3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		31D363F12C22143400B84BD3 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeEnvironmentKey.swift; sourceTree = "<group>"; };
 		31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingMiddleware.swift; sourceTree = "<group>"; };
 		31D363F82C232CBE00B84BD3 /* PrimitiveColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveColor.swift; sourceTree = "<group>"; };
 		31D363FA2C232CE600B84BD3 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
@@ -156,6 +155,7 @@
 		31E02CD22C1C3D9300FD8E0C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		31E02CD42C1C3E3B00FD8E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		31E02CE72C1C9EF300FD8E0C /* EditProfileForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileForm.swift; sourceTree = "<group>"; };
+		31F6380D2C235DDF004837B5 /* ThemeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +368,7 @@
 		31AD06322C16EAB100DD614A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				31F6380C2C235DD4004837B5 /* Theme */,
 				319CF1822C20CEE200E5AD59 /* Persistence */,
 				3169E4D72C1DB2FF0064FA7E /* FileUtil */,
 				3199F16F2C159F0000EF666C /* Validation */,
@@ -417,7 +418,6 @@
 		31D363F32C22D8F600B84BD3 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
-				31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */,
 				31D364202C2338DB00B84BD3 /* SnackbarStyleEnvironmentKey.swift */,
 			);
 			path = Environment;
@@ -529,6 +529,14 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
+		31F6380C2C235DD4004837B5 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				31F6380D2C235DDF004837B5 /* ThemeUtil.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -622,7 +630,7 @@
 				31C799D82C18892000F7FE55 /* UserDefaults+Extension.swift in Sources */,
 				31D364232C23393100B84BD3 /* AnySnackbarStyle.swift in Sources */,
 				319CF18C2C20D19B00E5AD59 /* ExampleDatabase.xcdatamodeld in Sources */,
-				31D363F52C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift in Sources */,
+				31F6380E2C235DDF004837B5 /* ThemeUtil.swift in Sources */,
 				319CF1702C20C24E00E5AD59 /* MenuItem.swift in Sources */,
 				31E02CAF2C1B773B00FD8E0C /* MenuViewModel.swift in Sources */,
 				319CF18E2C20D61200E5AD59 /* Combine+Extension.swift in Sources */,

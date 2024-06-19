@@ -12,4 +12,3 @@ protocol SnackbarStyle {
     @ViewBuilder
     func makeBody(_ configuration: SnackbarConfiguration) -> Content
 }
-

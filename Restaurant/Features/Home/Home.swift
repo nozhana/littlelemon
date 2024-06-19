@@ -12,6 +12,7 @@ struct Home: View {
     @Environment(\.colorScheme) private var colorScheme
     
     @Inject(\.persistenceController) private var persistence
+    @Inject(\.theme) private var theme
     
     var body: some View {
         TabView(selection: $viewModel.selectedTab) {
@@ -25,7 +26,13 @@ struct Home: View {
         .environment(\.managedObjectContext, persistence.container.viewContext)
         .environmentObject(viewModel)
         .sheet(isPresented: $viewModel.isShowingOnboarding, content: Onboarding.init)
-        .environment(\.colorTheme, colorScheme == .dark ? .dark : .light)
+        .environmentObject(theme)
+        .onChange(of: colorScheme) { newValue in
+            theme.color = newValue == .dark ? .dark : .light
+        }
+        .onAppear {
+            theme.color = colorScheme == .dark ? .dark : .light
+        }
     }
 }
 
