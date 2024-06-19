@@ -109,6 +109,7 @@ struct Menu: View {
             guard let output else { return }
             viewModel.persistMenu(output.menu, context: viewContext)
         }
+        .snackbar($viewModel.isShowingSnackbar, configuration: viewModel.snackbarConfiguration ?? .empty)
     }
 }
 

@@ -44,10 +44,10 @@ class OnboardingViewModel: BaseViewModel {
             .eraseToAnyPublisher()
         
         super.init()
-        setupBindings()
     }
     
-    private func setupBindings() {
+    override func setupBindings() {
+        super.setupBindings()
         self.formSubject.combineLatest(self.formValidation)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] form, formValidation in

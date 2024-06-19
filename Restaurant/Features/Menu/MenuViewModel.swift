@@ -14,13 +14,20 @@ class MenuViewModel: BaseViewModel {
     @Published var searchState = LLTextFieldState.normal
     @Published var isShowingSearch = false
     @Published var menuList: MenuList?
-    @Published var networkError: NetworkingError?
     
-    override init() {
-        super.init()
+    override func setupBindings() {
+        super.setupBindings()
         fetchMenu()
             .receive(on: DispatchQueue.main)
-            .assign(to: &$menuList, failure: &$networkError)
+            .assign(to: &$menuList, failure: &$networkingError)
+        
+        $networkingError
+            .receive(on: DispatchQueue.main)
+            .map {
+                guard let error = $0 else { return nil }
+                return SnackbarConfiguration(systemImage: "exclamationmark.icloud.fill", content: error.localizedDescription)
+            }
+            .assign(to: &$snackbarConfiguration)
     }
     
     @Inject(\.fileUtil) private var fileUtil

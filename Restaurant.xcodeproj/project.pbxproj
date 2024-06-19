@@ -57,6 +57,12 @@
 		31D3640D2C232DD400B84BD3 /* StrokeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3640C2C232DD400B84BD3 /* StrokeColors.swift */; };
 		31D364102C23305400B84BD3 /* AnyNetworkingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3640F2C23305400B84BD3 /* AnyNetworkingMiddleware.swift */; };
 		31D364132C23307500B84BD3 /* NetworkingLoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364122C23307500B84BD3 /* NetworkingLoggingMiddleware.swift */; };
+		31D364152C2333FA00B84BD3 /* SnackbarViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364142C2333FA00B84BD3 /* SnackbarViewModifier.swift */; };
+		31D364182C2334AC00B84BD3 /* SnackbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364172C2334AC00B84BD3 /* SnackbarStyle.swift */; };
+		31D3641D2C23363700B84BD3 /* SnackbarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3641C2C23363700B84BD3 /* SnackbarConfiguration.swift */; };
+		31D3641F2C23378500B84BD3 /* DefaultSnackbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3641E2C23378500B84BD3 /* DefaultSnackbarStyle.swift */; };
+		31D364212C2338DB00B84BD3 /* SnackbarStyleEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364202C2338DB00B84BD3 /* SnackbarStyleEnvironmentKey.swift */; };
+		31D364232C23393100B84BD3 /* AnySnackbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364222C23393100B84BD3 /* AnySnackbarStyle.swift */; };
 		31E02CA32C1B74EC00FD8E0C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA22C1B74EC00FD8E0C /* Home.swift */; };
 		31E02CA52C1B74F300FD8E0C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA42C1B74F300FD8E0C /* HomeViewModel.swift */; };
 		31E02CA82C1B768B00FD8E0C /* BaseTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA72C1B768B00FD8E0C /* BaseTabItem.swift */; };
@@ -127,6 +133,12 @@
 		31D3640C2C232DD400B84BD3 /* StrokeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeColors.swift; sourceTree = "<group>"; };
 		31D3640F2C23305400B84BD3 /* AnyNetworkingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyNetworkingMiddleware.swift; sourceTree = "<group>"; };
 		31D364122C23307500B84BD3 /* NetworkingLoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLoggingMiddleware.swift; sourceTree = "<group>"; };
+		31D364142C2333FA00B84BD3 /* SnackbarViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarViewModifier.swift; sourceTree = "<group>"; };
+		31D364172C2334AC00B84BD3 /* SnackbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarStyle.swift; sourceTree = "<group>"; };
+		31D3641C2C23363700B84BD3 /* SnackbarConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarConfiguration.swift; sourceTree = "<group>"; };
+		31D3641E2C23378500B84BD3 /* DefaultSnackbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSnackbarStyle.swift; sourceTree = "<group>"; };
+		31D364202C2338DB00B84BD3 /* SnackbarStyleEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarStyleEnvironmentKey.swift; sourceTree = "<group>"; };
+		31D364222C23393100B84BD3 /* AnySnackbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySnackbarStyle.swift; sourceTree = "<group>"; };
 		31E02CA22C1B74EC00FD8E0C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		31E02CA42C1B74F300FD8E0C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		31E02CA72C1B768B00FD8E0C /* BaseTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabItem.swift; sourceTree = "<group>"; };
@@ -247,6 +259,7 @@
 		316487E92C15001900CAA8A8 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				31D364162C2334A700B84BD3 /* Snackbar */,
 				31D363ED2C2210F200B84BD3 /* Colors */,
 				31E02CD12C1C3D6D00FD8E0C /* Fonts */,
 				316487EF2C15017100CAA8A8 /* TextField */,
@@ -405,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */,
+				31D364202C2338DB00B84BD3 /* SnackbarStyleEnvironmentKey.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -417,6 +431,25 @@
 				31D364122C23307500B84BD3 /* NetworkingLoggingMiddleware.swift */,
 			);
 			path = Middleware;
+			sourceTree = "<group>";
+		};
+		31D364162C2334A700B84BD3 /* Snackbar */ = {
+			isa = PBXGroup;
+			children = (
+				31D364172C2334AC00B84BD3 /* SnackbarStyle.swift */,
+				31D364222C23393100B84BD3 /* AnySnackbarStyle.swift */,
+				31D3641E2C23378500B84BD3 /* DefaultSnackbarStyle.swift */,
+				31D3641C2C23363700B84BD3 /* SnackbarConfiguration.swift */,
+			);
+			path = Snackbar;
+			sourceTree = "<group>";
+		};
+		31D364192C2334D400B84BD3 /* Snackbar */ = {
+			isa = PBXGroup;
+			children = (
+				31D364142C2333FA00B84BD3 /* SnackbarViewModifier.swift */,
+			);
+			path = Snackbar;
 			sourceTree = "<group>";
 		};
 		31E02CA12C1B74E000FD8E0C /* Home */ = {
@@ -491,6 +524,7 @@
 		31E02CD72C1C4B3300FD8E0C /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				31D364192C2334D400B84BD3 /* Snackbar */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -586,6 +620,7 @@
 				3169E4E92C1ED0F20064FA7E /* MenuSearch.swift in Sources */,
 				3199F18A2C15EAA000EF666C /* BaseViewModel.swift in Sources */,
 				31C799D82C18892000F7FE55 /* UserDefaults+Extension.swift in Sources */,
+				31D364232C23393100B84BD3 /* AnySnackbarStyle.swift in Sources */,
 				319CF18C2C20D19B00E5AD59 /* ExampleDatabase.xcdatamodeld in Sources */,
 				31D363F52C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift in Sources */,
 				319CF1702C20C24E00E5AD59 /* MenuItem.swift in Sources */,
@@ -603,6 +638,7 @@
 				31D363F72C22EA4500B84BD3 /* NetworkingMiddleware.swift in Sources */,
 				319CF17D2C20C63400E5AD59 /* RequestMethod.swift in Sources */,
 				31D364092C232DB200B84BD3 /* TextColors.swift in Sources */,
+				31D3641F2C23378500B84BD3 /* DefaultSnackbarStyle.swift in Sources */,
 				31D3640D2C232DD400B84BD3 /* StrokeColors.swift in Sources */,
 				31E02CAD2C1B773200FD8E0C /* Menu.swift in Sources */,
 				318040232C162DF200B507D7 /* Onboarding.swift in Sources */,
@@ -620,8 +656,12 @@
 				31E02CE82C1C9EF300FD8E0C /* EditProfileForm.swift in Sources */,
 				319CF1772C20C31A00E5AD59 /* Service.swift in Sources */,
 				31C799D02C185A2700F7FE55 /* Injector.swift in Sources */,
+				31D3641D2C23363700B84BD3 /* SnackbarConfiguration.swift in Sources */,
+				31D364152C2333FA00B84BD3 /* SnackbarViewModifier.swift in Sources */,
+				31D364212C2338DB00B84BD3 /* SnackbarStyleEnvironmentKey.swift in Sources */,
 				316487EB2C15003300CAA8A8 /* LLTextFieldStyle.swift in Sources */,
 				31D363FF2C232D1400B84BD3 /* TextColorTheme.swift in Sources */,
+				31D364182C2334AC00B84BD3 /* SnackbarStyle.swift in Sources */,
 				316487ED2C15014B00CAA8A8 /* LLTextFieldState.swift in Sources */,
 				3169E4D92C1DB3090064FA7E /* FileUtil.swift in Sources */,
 				31E02CA82C1B768B00FD8E0C /* BaseTabItem.swift in Sources */,
