@@ -44,6 +44,19 @@
 		31D363F22C22143400B84BD3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F12C22143400B84BD3 /* Color+Extension.swift */; };
 		31D363F52C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */; };
 		31D363F72C22EA4500B84BD3 /* NetworkingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */; };
+		31D363F92C232CBE00B84BD3 /* PrimitiveColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F82C232CBE00B84BD3 /* PrimitiveColor.swift */; };
+		31D363FB2C232CE600B84BD3 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363FA2C232CE600B84BD3 /* ColorTheme.swift */; };
+		31D363FD2C232CFF00B84BD3 /* SurfaceColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363FC2C232CFF00B84BD3 /* SurfaceColorTheme.swift */; };
+		31D363FF2C232D1400B84BD3 /* TextColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363FE2C232D1400B84BD3 /* TextColorTheme.swift */; };
+		31D364012C232D2400B84BD3 /* IconColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364002C232D2400B84BD3 /* IconColorTheme.swift */; };
+		31D364032C232D3200B84BD3 /* StrokeColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364022C232D3200B84BD3 /* StrokeColorTheme.swift */; };
+		31D364052C232D4000B84BD3 /* AnyColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364042C232D4000B84BD3 /* AnyColorTheme.swift */; };
+		31D364072C232D9A00B84BD3 /* SurfaceColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364062C232D9A00B84BD3 /* SurfaceColors.swift */; };
+		31D364092C232DB200B84BD3 /* TextColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364082C232DB200B84BD3 /* TextColors.swift */; };
+		31D3640B2C232DC300B84BD3 /* IconColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3640A2C232DC300B84BD3 /* IconColors.swift */; };
+		31D3640D2C232DD400B84BD3 /* StrokeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3640C2C232DD400B84BD3 /* StrokeColors.swift */; };
+		31D364102C23305400B84BD3 /* AnyNetworkingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3640F2C23305400B84BD3 /* AnyNetworkingMiddleware.swift */; };
+		31D364132C23307500B84BD3 /* NetworkingLoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D364122C23307500B84BD3 /* NetworkingLoggingMiddleware.swift */; };
 		31E02CA32C1B74EC00FD8E0C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA22C1B74EC00FD8E0C /* Home.swift */; };
 		31E02CA52C1B74F300FD8E0C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA42C1B74F300FD8E0C /* HomeViewModel.swift */; };
 		31E02CA82C1B768B00FD8E0C /* BaseTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA72C1B768B00FD8E0C /* BaseTabItem.swift */; };
@@ -101,6 +114,19 @@
 		31D363F12C22143400B84BD3 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeEnvironmentKey.swift; sourceTree = "<group>"; };
 		31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingMiddleware.swift; sourceTree = "<group>"; };
+		31D363F82C232CBE00B84BD3 /* PrimitiveColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveColor.swift; sourceTree = "<group>"; };
+		31D363FA2C232CE600B84BD3 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		31D363FC2C232CFF00B84BD3 /* SurfaceColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceColorTheme.swift; sourceTree = "<group>"; };
+		31D363FE2C232D1400B84BD3 /* TextColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextColorTheme.swift; sourceTree = "<group>"; };
+		31D364002C232D2400B84BD3 /* IconColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconColorTheme.swift; sourceTree = "<group>"; };
+		31D364022C232D3200B84BD3 /* StrokeColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeColorTheme.swift; sourceTree = "<group>"; };
+		31D364042C232D4000B84BD3 /* AnyColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyColorTheme.swift; sourceTree = "<group>"; };
+		31D364062C232D9A00B84BD3 /* SurfaceColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceColors.swift; sourceTree = "<group>"; };
+		31D364082C232DB200B84BD3 /* TextColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextColors.swift; sourceTree = "<group>"; };
+		31D3640A2C232DC300B84BD3 /* IconColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconColors.swift; sourceTree = "<group>"; };
+		31D3640C2C232DD400B84BD3 /* StrokeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeColors.swift; sourceTree = "<group>"; };
+		31D3640F2C23305400B84BD3 /* AnyNetworkingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyNetworkingMiddleware.swift; sourceTree = "<group>"; };
+		31D364122C23307500B84BD3 /* NetworkingLoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLoggingMiddleware.swift; sourceTree = "<group>"; };
 		31E02CA22C1B74EC00FD8E0C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		31E02CA42C1B74F300FD8E0C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		31E02CA72C1B768B00FD8E0C /* BaseTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabItem.swift; sourceTree = "<group>"; };
@@ -293,7 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				319CF1742C20C2C900E5AD59 /* CombineNetworking.swift */,
-				31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */,
+				31D364112C23306000B84BD3 /* Middleware */,
 				319CF1762C20C31A00E5AD59 /* Service.swift */,
 				319CF17C2C20C63400E5AD59 /* RequestMethod.swift */,
 				319CF17A2C20C3FC00E5AD59 /* NetworkingError.swift */,
@@ -359,7 +385,18 @@
 		31D363ED2C2210F200B84BD3 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				31D363F82C232CBE00B84BD3 /* PrimitiveColor.swift */,
+				31D363FA2C232CE600B84BD3 /* ColorTheme.swift */,
+				31D364042C232D4000B84BD3 /* AnyColorTheme.swift */,
+				31D363FC2C232CFF00B84BD3 /* SurfaceColorTheme.swift */,
+				31D363FE2C232D1400B84BD3 /* TextColorTheme.swift */,
+				31D364002C232D2400B84BD3 /* IconColorTheme.swift */,
+				31D364022C232D3200B84BD3 /* StrokeColorTheme.swift */,
 				31D363EE2C2210F900B84BD3 /* Colors.swift */,
+				31D364062C232D9A00B84BD3 /* SurfaceColors.swift */,
+				31D364082C232DB200B84BD3 /* TextColors.swift */,
+				31D3640A2C232DC300B84BD3 /* IconColors.swift */,
+				31D3640C2C232DD400B84BD3 /* StrokeColors.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -370,6 +407,16 @@
 				31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */,
 			);
 			path = Environment;
+			sourceTree = "<group>";
+		};
+		31D364112C23306000B84BD3 /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */,
+				31D3640F2C23305400B84BD3 /* AnyNetworkingMiddleware.swift */,
+				31D364122C23307500B84BD3 /* NetworkingLoggingMiddleware.swift */,
+			);
+			path = Middleware;
 			sourceTree = "<group>";
 		};
 		31E02CA12C1B74E000FD8E0C /* Home */ = {
@@ -527,11 +574,14 @@
 				319CF1882C20CF5800E5AD59 /* FetchedObjects.swift in Sources */,
 				31E02CA52C1B74F300FD8E0C /* HomeViewModel.swift in Sources */,
 				319CF1792C20C39E00E5AD59 /* URLSessionCombineNetworker.swift in Sources */,
+				31D363FB2C232CE600B84BD3 /* ColorTheme.swift in Sources */,
 				31E02CBA2C1B815E00FD8E0C /* Profile.swift in Sources */,
 				3169E4E72C1E572E0064FA7E /* Image+Extension.swift in Sources */,
 				31E02CD32C1C3D9300FD8E0C /* Fonts.swift in Sources */,
 				319CF1752C20C2C900E5AD59 /* CombineNetworking.swift in Sources */,
+				31D364072C232D9A00B84BD3 /* SurfaceColors.swift in Sources */,
 				31C799D42C186A7100F7FE55 /* DefaultsContainer.swift in Sources */,
+				31D364102C23305400B84BD3 /* AnyNetworkingMiddleware.swift in Sources */,
 				318040212C162C0900B507D7 /* Validator+Combine.swift in Sources */,
 				3169E4E92C1ED0F20064FA7E /* MenuSearch.swift in Sources */,
 				3199F18A2C15EAA000EF666C /* BaseViewModel.swift in Sources */,
@@ -541,33 +591,43 @@
 				319CF1702C20C24E00E5AD59 /* MenuItem.swift in Sources */,
 				31E02CAF2C1B773B00FD8E0C /* MenuViewModel.swift in Sources */,
 				319CF18E2C20D61200E5AD59 /* Combine+Extension.swift in Sources */,
+				31D363F92C232CBE00B84BD3 /* PrimitiveColor.swift in Sources */,
 				319CF1862C20CEFA00E5AD59 /* PersistenceController.swift in Sources */,
 				31E02CA32C1B74EC00FD8E0C /* Home.swift in Sources */,
 				319CF1812C20CCB400E5AD59 /* MenuService.swift in Sources */,
 				31E02CBC2C1B86AF00FD8E0C /* HomeTab.swift in Sources */,
 				319CF16E2C20C12700E5AD59 /* MenuList.swift in Sources */,
 				316487F12C15050500CAA8A8 /* Shape+Extension.swift in Sources */,
+				31D364032C232D3200B84BD3 /* StrokeColorTheme.swift in Sources */,
 				3199F1772C15AFA300EF666C /* Validators.swift in Sources */,
 				31D363F72C22EA4500B84BD3 /* NetworkingMiddleware.swift in Sources */,
 				319CF17D2C20C63400E5AD59 /* RequestMethod.swift in Sources */,
+				31D364092C232DB200B84BD3 /* TextColors.swift in Sources */,
+				31D3640D2C232DD400B84BD3 /* StrokeColors.swift in Sources */,
 				31E02CAD2C1B773200FD8E0C /* Menu.swift in Sources */,
 				318040232C162DF200B507D7 /* Onboarding.swift in Sources */,
 				3199F1732C159F2200EF666C /* Validator.swift in Sources */,
 				31C799E02C18C0A800F7FE55 /* Repository.swift in Sources */,
 				319CF17B2C20C3FC00E5AD59 /* NetworkingError.swift in Sources */,
 				3199F1832C15DD7100EF666C /* OnboardingViewModel.swift in Sources */,
+				31D364012C232D2400B84BD3 /* IconColorTheme.swift in Sources */,
+				31D364052C232D4000B84BD3 /* AnyColorTheme.swift in Sources */,
 				31D363F22C22143400B84BD3 /* Color+Extension.swift in Sources */,
 				31E02CB92C1B815E00FD8E0C /* ProfileViewModel.swift in Sources */,
 				31D363EF2C2210F900B84BD3 /* Colors.swift in Sources */,
 				315C33802BBEDDDA00EB84CE /* RestaurantApp.swift in Sources */,
+				31D364132C23307500B84BD3 /* NetworkingLoggingMiddleware.swift in Sources */,
 				31E02CE82C1C9EF300FD8E0C /* EditProfileForm.swift in Sources */,
 				319CF1772C20C31A00E5AD59 /* Service.swift in Sources */,
 				31C799D02C185A2700F7FE55 /* Injector.swift in Sources */,
 				316487EB2C15003300CAA8A8 /* LLTextFieldStyle.swift in Sources */,
+				31D363FF2C232D1400B84BD3 /* TextColorTheme.swift in Sources */,
 				316487ED2C15014B00CAA8A8 /* LLTextFieldState.swift in Sources */,
 				3169E4D92C1DB3090064FA7E /* FileUtil.swift in Sources */,
 				31E02CA82C1B768B00FD8E0C /* BaseTabItem.swift in Sources */,
+				31D363FD2C232CFF00B84BD3 /* SurfaceColorTheme.swift in Sources */,
 				31C799CC2C1849A000F7FE55 /* Factory.swift in Sources */,
+				31D3640B2C232DC300B84BD3 /* IconColors.swift in Sources */,
 				316BCEE02C21C30E00F19E69 /* MenuCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
