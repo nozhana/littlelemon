@@ -12,6 +12,7 @@ protocol Service {
     var path: String { get }
     var method: RequestMethod { get }
     var headers: [String: String] { get }
+    // TODO: Query params, body, etc.
 }
 
 extension Service {
@@ -19,6 +20,32 @@ extension Service {
     var headers: [String: String] { [:] }
     
     var urlRequest: URLRequest {
-        URLRequest(url: URL(string: baseURL)!.appending(path: path), timeoutInterval: 30)
+        var request = URLRequest(url: URL(string: baseURL)!.appending(path: path), timeoutInterval: 30)
+        request.allHTTPHeaderFields?.merge(headers, uniquingKeysWith: { _, new in
+            new
+        })
+        request.httpMethod = method.rawValue.uppercased()
+        return request
+    }
+}
+
+struct CustomService: Service {
+    var baseURL: String
+    var path: String
+    var method: RequestMethod
+    var headers: [String : String]
+    
+    init(baseURL: String, path: String, method: RequestMethod = .get, headers: [String : String] = [:]) {
+        self.baseURL = baseURL
+        self.path = path
+        self.method = method
+        self.headers = headers
+    }
+    
+    init(_ service: Service) {
+        self.baseURL = service.baseURL
+        self.path = service.path
+        self.method = service.method
+        self.headers = service.headers
     }
 }

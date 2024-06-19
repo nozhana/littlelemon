@@ -12,6 +12,7 @@ import PhotosUI
 struct Profile: View {
     @StateObject private var viewModel = Inject[\.profileViewModel]
     @EnvironmentObject private var homeViewModel: HomeViewModel
+    @Environment(\.colorTheme) private var colorTheme
     
     @State private var firstName = ""
     @State private var lastName = ""

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Home: View {
     @StateObject private var viewModel = Inject[\.homeViewModel]
+    @Environment(\.colorScheme) private var colorScheme
     
     @Inject(\.persistenceController) private var persistence
     
@@ -24,6 +25,7 @@ struct Home: View {
         .environment(\.managedObjectContext, persistence.container.viewContext)
         .environmentObject(viewModel)
         .sheet(isPresented: $viewModel.isShowingOnboarding, content: Onboarding.init)
+        .environment(\.colorTheme, colorScheme == .dark ? .dark : .light)
     }
 }
 

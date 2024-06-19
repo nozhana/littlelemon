@@ -40,6 +40,10 @@
 		31C799D42C186A7100F7FE55 /* DefaultsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799D32C186A7000F7FE55 /* DefaultsContainer.swift */; };
 		31C799D82C18892000F7FE55 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799D72C18892000F7FE55 /* UserDefaults+Extension.swift */; };
 		31C799E02C18C0A800F7FE55 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799DF2C18C0A800F7FE55 /* Repository.swift */; };
+		31D363EF2C2210F900B84BD3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363EE2C2210F900B84BD3 /* Colors.swift */; };
+		31D363F22C22143400B84BD3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F12C22143400B84BD3 /* Color+Extension.swift */; };
+		31D363F52C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */; };
+		31D363F72C22EA4500B84BD3 /* NetworkingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */; };
 		31E02CA32C1B74EC00FD8E0C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA22C1B74EC00FD8E0C /* Home.swift */; };
 		31E02CA52C1B74F300FD8E0C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA42C1B74F300FD8E0C /* HomeViewModel.swift */; };
 		31E02CA82C1B768B00FD8E0C /* BaseTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E02CA72C1B768B00FD8E0C /* BaseTabItem.swift */; };
@@ -93,6 +97,10 @@
 		31C799D32C186A7000F7FE55 /* DefaultsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsContainer.swift; sourceTree = "<group>"; };
 		31C799D72C18892000F7FE55 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		31C799DF2C18C0A800F7FE55 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		31D363EE2C2210F900B84BD3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		31D363F12C22143400B84BD3 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeEnvironmentKey.swift; sourceTree = "<group>"; };
+		31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingMiddleware.swift; sourceTree = "<group>"; };
 		31E02CA22C1B74EC00FD8E0C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		31E02CA42C1B74F300FD8E0C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		31E02CA72C1B768B00FD8E0C /* BaseTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabItem.swift; sourceTree = "<group>"; };
@@ -200,10 +208,12 @@
 		316487E62C14F9D900CAA8A8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				31D363F32C22D8F600B84BD3 /* Environment */,
 				316487F02C15050500CAA8A8 /* Shape+Extension.swift */,
 				31C799D72C18892000F7FE55 /* UserDefaults+Extension.swift */,
 				3169E4E62C1E572E0064FA7E /* Image+Extension.swift */,
 				319CF18D2C20D61200E5AD59 /* Combine+Extension.swift */,
+				31D363F12C22143400B84BD3 /* Color+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +221,7 @@
 		316487E92C15001900CAA8A8 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				31D363ED2C2210F200B84BD3 /* Colors */,
 				31E02CD12C1C3D6D00FD8E0C /* Fonts */,
 				316487EF2C15017100CAA8A8 /* TextField */,
 			);
@@ -282,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				319CF1742C20C2C900E5AD59 /* CombineNetworking.swift */,
+				31D363F62C22EA4500B84BD3 /* NetworkingMiddleware.swift */,
 				319CF1762C20C31A00E5AD59 /* Service.swift */,
 				319CF17C2C20C63400E5AD59 /* RequestMethod.swift */,
 				319CF17A2C20C3FC00E5AD59 /* NetworkingError.swift */,
@@ -342,6 +354,22 @@
 				31C799CF2C185A2700F7FE55 /* Injector.swift */,
 			);
 			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		31D363ED2C2210F200B84BD3 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				31D363EE2C2210F900B84BD3 /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		31D363F32C22D8F600B84BD3 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				31D363F42C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift */,
+			);
+			path = Environment;
 			sourceTree = "<group>";
 		};
 		31E02CA12C1B74E000FD8E0C /* Home */ = {
@@ -509,6 +537,7 @@
 				3199F18A2C15EAA000EF666C /* BaseViewModel.swift in Sources */,
 				31C799D82C18892000F7FE55 /* UserDefaults+Extension.swift in Sources */,
 				319CF18C2C20D19B00E5AD59 /* ExampleDatabase.xcdatamodeld in Sources */,
+				31D363F52C22D90B00B84BD3 /* ColorThemeEnvironmentKey.swift in Sources */,
 				319CF1702C20C24E00E5AD59 /* MenuItem.swift in Sources */,
 				31E02CAF2C1B773B00FD8E0C /* MenuViewModel.swift in Sources */,
 				319CF18E2C20D61200E5AD59 /* Combine+Extension.swift in Sources */,
@@ -519,6 +548,7 @@
 				319CF16E2C20C12700E5AD59 /* MenuList.swift in Sources */,
 				316487F12C15050500CAA8A8 /* Shape+Extension.swift in Sources */,
 				3199F1772C15AFA300EF666C /* Validators.swift in Sources */,
+				31D363F72C22EA4500B84BD3 /* NetworkingMiddleware.swift in Sources */,
 				319CF17D2C20C63400E5AD59 /* RequestMethod.swift in Sources */,
 				31E02CAD2C1B773200FD8E0C /* Menu.swift in Sources */,
 				318040232C162DF200B507D7 /* Onboarding.swift in Sources */,
@@ -526,7 +556,9 @@
 				31C799E02C18C0A800F7FE55 /* Repository.swift in Sources */,
 				319CF17B2C20C3FC00E5AD59 /* NetworkingError.swift in Sources */,
 				3199F1832C15DD7100EF666C /* OnboardingViewModel.swift in Sources */,
+				31D363F22C22143400B84BD3 /* Color+Extension.swift in Sources */,
 				31E02CB92C1B815E00FD8E0C /* ProfileViewModel.swift in Sources */,
+				31D363EF2C2210F900B84BD3 /* Colors.swift in Sources */,
 				315C33802BBEDDDA00EB84CE /* RestaurantApp.swift in Sources */,
 				31E02CE82C1C9EF300FD8E0C /* EditProfileForm.swift in Sources */,
 				319CF1772C20C31A00E5AD59 /* Service.swift in Sources */,

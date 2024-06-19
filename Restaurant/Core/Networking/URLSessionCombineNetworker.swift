@@ -9,43 +9,55 @@ import Combine
 import Foundation
 
 struct URLSessionCombineNetworker: CombineNetworking {
-    func request<Response>(_ responseType: Response.Type, from service: Service) -> AnyPublisher<Response, NetworkingError> where Response : Decodable {
-        // FIXME: Debug
-        print("Requesting: \(service)")
-        print("Base URL: \(service.baseURL)")
-        print("Path: \(service.path)")
-        print("URLRequest: \(service.urlRequest)")
-        print("Method: \(service.method)")
-        
-        let subject = PassthroughSubject<Response, NetworkingError>()
-        
+    var middlewares: [AnyNetworkingMiddleware] = []
+    
+    func processRequest<Response>(_ responseType: Response.Type, from service: Service, completion: @escaping (Result<Response, NetworkingError>) -> Void) where Response : Decodable {
         let task = URLSession.shared.dataTask(with: service.urlRequest) { data, response, error in
             if let error = error as? URLError {
-                print("NetworkingError \(error)")
-                subject.send(completion: .failure(NetworkingError(error.errorCode)))
+                completion(.failure(NetworkingError(error.errorCode)))
                 return
+            } else if let error {
+                print("NetworkingError unknown: 3 - \(error.localizedDescription)")
+                completion(.failure(.unknown(status: 3))) // FIXME: UnknownError
             }
             
             guard let data,
-                  let decoded = try? JSONDecoder().decode(Response.self, from: data) else {
-                // FIXME: Debug
-                print("DecodingError")
-                subject.send(completion: .failure(NetworkingError.decodingError))
+                  let decoded = try? JSONDecoder().decode(responseType, from: data) else {
+                completion(.failure(.decodingError))
                 return
             }
             
-            // FIXME: Debug
-            print("Decoded \(decoded)")
-            subject.send(decoded)
+            completion(.success(decoded))
+        }
+        task.resume()
+    }
+    
+    func processRequest<Response>(_ responseType: Response.Type, from service: Service) async -> Result<Response, NetworkingError> where Response : Decodable {
+        var data: Data
+        do {
+            (data, _) = try await URLSession.shared.data(for: service.urlRequest)
+        } catch {
+            if let error = error as? URLError {
+                return .failure(NetworkingError(error.errorCode))
+            }
+            print("NetworkingError unknown: 3 - \(error.localizedDescription)")
+            return .failure(.unknown(status: 3)) // FIXME: UnknownError
         }
         
-        task.resume()
-        return subject.eraseToAnyPublisher()
+        guard let decoded = try? JSONDecoder().decode(responseType, from: data) else {
+            return .failure(.decodingError)
+        }
+        
+        return .success(decoded)
     }
 }
 
 extension Container {
     var networker: Factory<CombineNetworking> {
-        self { URLSessionCombineNetworker() }
+        self {
+            var networker = URLSessionCombineNetworker()
+            networker.registerMiddleware(NetworkingLoggingMiddleware())
+            return networker
+        }
     }
 }
