@@ -82,7 +82,7 @@ struct Menu: View {
                         .padding(.top, 16)
                     ProgressView()
                 }
-                ForEach(dishes) { dish in
+                ForEach(viewModel.searchQuery.isEmpty ? dishes : dishes.filter { ($0.title?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true) || ($0.desc?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true)}) { dish in
                     MenuCard(dish: dish)
                 } // ForEach
             } // FetchedObjects
