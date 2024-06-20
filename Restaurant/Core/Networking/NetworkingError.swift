@@ -9,7 +9,7 @@ import Foundation
 
 enum NetworkingError: Error {
     case decodingError
-    case middlewareError
+    case middlewareError(message: String? = nil)
     case badRequest, unauthorized, paymentRequired, forbidden, notFound, methodNotAllowed, notAcceptable
     case internalServerError, notImplemented, badGateway, serviceUnavailable, gatewayTimeout, bandwidthLimit, authenticationRequired
     case connectionLost, connectionOffline
@@ -62,10 +62,6 @@ extension NetworkingError {
     
     init(urlError: URLError) {
         switch urlError.errorCode {
-        case 1:
-            self = .decodingError
-        case 2:
-            self = .middlewareError
         case 400:
             self = .badRequest
         case 401:
@@ -119,8 +115,11 @@ extension NetworkingError: CustomStringConvertible {
         switch self {
         case .decodingError:
             return "Decoding Error"
-        case .middlewareError:
-            return "Middleware Error"
+        case .middlewareError(let description):
+            guard let description else {
+                return "Middleware Error"
+            }
+            return "Middleware Error: \(description)"
         case .badRequest:
             return "Bad Request"
         case .unauthorized:

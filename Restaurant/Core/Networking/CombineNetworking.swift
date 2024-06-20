@@ -19,21 +19,30 @@ extension CombineNetworking {
         middlewares.append(middleware.eraseToAnyNetworkingMiddleware())
     }
     
-    func preProcess(_ service: Service) -> Service? {
-        var processed: Service? = service
-        processed = middlewares.reduce(into: processed) { partialResult, middleware in
-            guard let request = partialResult else {
-                return
+    private func preProcess(_ service: Service) -> Result<Service, NetworkingError> {
+        var processed: Result<Service, NetworkingError> = .success(service)
+    outer: 
+        for middleware in middlewares {
+            switch processed {
+            case .success(let service):
+                processed = middleware.request(service)
+            case .failure:
+                break outer
             }
-            partialResult = middleware.request(request)
         }
         return processed
     }
     
-    func postProcess<Response>(_ result: Result<Response, NetworkingError>) -> Result<Response, NetworkingError> {
+    private func postProcess<Response>(_ result: Result<Response, NetworkingError>) -> Result<Response, NetworkingError> {
         var processed = result
-        processed = middlewares.reduce(into: processed) { partialResult, middleware in
-            partialResult = middleware.response(partialResult)
+    outer:
+        for middleware in middlewares {
+            switch processed {
+            case .success:
+                processed = middleware.response(processed)
+            case .failure:
+                break outer
+            }
         }
         return processed
     }
@@ -41,12 +50,14 @@ extension CombineNetworking {
     @discardableResult
     func request<Response>(_ responseType: Response.Type, from service: Service, completion: ((Result<Response, NetworkingError>) -> Void)? = nil) -> AnyPublisher<Response, NetworkingError> where Response: Decodable {
         let subject = PassthroughSubject<Response, NetworkingError>()
-        guard let request = preProcess(service) else {
-            subject.send(completion: .failure(.middlewareError))
-            completion?(.failure(.middlewareError))
+        let requestResult = preProcess(service)
+        if case .failure(let error) = requestResult {
+            subject.send(completion: .failure(error))
+            completion?(.failure(error))
             return subject.eraseToAnyPublisher()
         }
-        processRequest(responseType, from: request) { result in
+        
+        processRequest(responseType, from: try! requestResult.get()) { result in
             let response = postProcess(result)
             switch response {
             case .success(let decoded):
@@ -60,10 +71,12 @@ extension CombineNetworking {
     }
     
     func request<Response>(_ responseType: Response.Type, from service: Service) async -> Result<Response, NetworkingError> where Response: Decodable {
-        guard let request = preProcess(service) else {
-            return .failure(.middlewareError)
+        let requestResult = preProcess(service)
+        if case .failure(let error) = requestResult {
+            return .failure(error)
         }
-        let result = await processRequest(responseType, from: service)
+        
+        let result = await processRequest(responseType, from: try! requestResult.get())
         return postProcess(result)
     }
 }

@@ -14,7 +14,7 @@ struct AnyNetworkingMiddleware: NetworkingMiddleware {
         self.middleware = middleware
     }
     
-    func request(_ service: Service) -> Service? {
+    func request(_ service: Service) -> Result<Service, NetworkingError> {
         middleware.request(service)
     }
     

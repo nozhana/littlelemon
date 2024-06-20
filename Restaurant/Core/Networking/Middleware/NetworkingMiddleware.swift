@@ -8,13 +8,13 @@
 import Foundation
 
 protocol NetworkingMiddleware {
-    func request(_ service: Service) -> Service?
+    func request(_ service: Service) -> Result<Service, NetworkingError>
     func response<Response>(_ result: Result<Response, NetworkingError>) -> Result<Response, NetworkingError>
 }
 
 extension NetworkingMiddleware {
-    func request(_ service: Service) -> Service? {
-        service
+    func request(_ service: Service) -> Result<Service, NetworkingError> {
+        .success(service)
     }
     
     func response<Response>(_ result: Result<Response, NetworkingError>) -> Result<Response, NetworkingError> {
