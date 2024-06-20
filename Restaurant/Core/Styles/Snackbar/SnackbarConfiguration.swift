@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SnackbarConfiguration {
+struct SnackbarConfiguration: Equatable {
     let systemImage: String
     let content: String
 }

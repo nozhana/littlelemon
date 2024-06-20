@@ -12,25 +12,22 @@ class BaseViewModel: ObservableObject {
     var disposeBag: Set<AnyCancellable> = []
     
     @Published var networkingError: NetworkingError? = nil
-    @Published var snackbarConfiguration: SnackbarConfiguration? = nil
-    
-    var isShowingSnackbar: Bool {
-        get { snackbarConfiguration != nil }
-        set {
-            if !newValue {
-                snackbarConfiguration = nil
-            }
-        }
-    }
     
     @Inject(\.networker) private var networker
+    @Inject(\.snackbar) private var snackbar
     
     init() {
         setupBindings()
     }
     
     func setupBindings() {
-        
+        $networkingError
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                guard let self, let error else { return }
+                snackbar.configuration = SnackbarConfiguration(systemImage: "exclamationmark.icloud.fill", content: error.localizedDescription)
+            }
+            .store(in: &disposeBag)
     }
     
     @discardableResult

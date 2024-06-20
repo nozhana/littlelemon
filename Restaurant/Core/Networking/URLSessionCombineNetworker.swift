@@ -14,11 +14,10 @@ struct URLSessionCombineNetworker: CombineNetworking {
     func processRequest<Response>(_ responseType: Response.Type, from service: Service, completion: @escaping (Result<Response, NetworkingError>) -> Void) where Response : Decodable {
         let task = URLSession.shared.dataTask(with: service.urlRequest) { data, response, error in
             if let error = error as? URLError {
-                completion(.failure(NetworkingError(error.errorCode)))
+                completion(.failure(NetworkingError(urlError: error)))
                 return
-            } else if let error {
-                print("NetworkingError unknown: 3 - \(error.localizedDescription)")
-                completion(.failure(.unknown(status: 3))) // FIXME: UnknownError
+            } else if let error = error as? NSError {
+                completion(.failure(NetworkingError(nsError: error)))
             }
             
             guard let data,
@@ -38,10 +37,9 @@ struct URLSessionCombineNetworker: CombineNetworking {
             (data, _) = try await URLSession.shared.data(for: service.urlRequest)
         } catch {
             if let error = error as? URLError {
-                return .failure(NetworkingError(error.errorCode))
+                return .failure(NetworkingError(urlError: error))
             }
-            print("NetworkingError unknown: 3 - \(error.localizedDescription)")
-            return .failure(.unknown(status: 3)) // FIXME: UnknownError
+            return .failure(NetworkingError(nsError: error as NSError))
         }
         
         guard let decoded = try? JSONDecoder().decode(responseType, from: data) else {

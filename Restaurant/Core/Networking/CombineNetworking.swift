@@ -42,8 +42,8 @@ extension CombineNetworking {
     func request<Response>(_ responseType: Response.Type, from service: Service, completion: ((Result<Response, NetworkingError>) -> Void)? = nil) -> AnyPublisher<Response, NetworkingError> where Response: Decodable {
         let subject = PassthroughSubject<Response, NetworkingError>()
         guard let request = preProcess(service) else {
-            subject.send(completion: .failure(.unknown(status: 2))) // FIXME: MiddlewareError
-            completion?(.failure(.unknown(status: 2)))
+            subject.send(completion: .failure(.middlewareError))
+            completion?(.failure(.middlewareError))
             return subject.eraseToAnyPublisher()
         }
         processRequest(responseType, from: request) { result in
@@ -61,7 +61,7 @@ extension CombineNetworking {
     
     func request<Response>(_ responseType: Response.Type, from service: Service) async -> Result<Response, NetworkingError> where Response: Decodable {
         guard let request = preProcess(service) else {
-            return .failure(.unknown(status: 2)) // FIXME: MiddlewareError
+            return .failure(.middlewareError)
         }
         let result = await processRequest(responseType, from: service)
         return postProcess(result)

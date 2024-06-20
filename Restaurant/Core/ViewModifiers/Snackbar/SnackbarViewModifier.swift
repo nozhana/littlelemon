@@ -15,13 +15,15 @@ struct SnackbarViewModifier: ViewModifier {
     @Environment(\.snackbarStyle) private var style
     
     func body(content: Content) -> some View {
-        ZStack(alignment: .bottom) {
+        ZStack {
             content
             if isPresented {
                 style.makeBody(configuration)
                     .onTapGesture {
-                        withAnimation {
-                            isPresented = false
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                isPresented = false
+                            }
                         }
                     } // onTapGesture
                     .onAppear {
@@ -31,8 +33,6 @@ struct SnackbarViewModifier: ViewModifier {
                             }
                         } // asyncAfter
                     } // onAppear
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                    .animation(.easeOut(duration: 0.2))
             } // if
         } // ZStack
     } // body

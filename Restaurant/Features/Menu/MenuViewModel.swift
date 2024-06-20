@@ -20,14 +20,6 @@ class MenuViewModel: BaseViewModel {
         fetchMenu()
             .receive(on: DispatchQueue.main)
             .assign(to: &$menuList, failure: &$networkingError)
-        
-        $networkingError
-            .receive(on: DispatchQueue.main)
-            .map {
-                guard let error = $0 else { return nil }
-                return SnackbarConfiguration(systemImage: "exclamationmark.icloud.fill", content: error.localizedDescription)
-            }
-            .assign(to: &$snackbarConfiguration)
     }
     
     @Inject(\.fileUtil) private var fileUtil
@@ -56,12 +48,10 @@ class MenuViewModel: BaseViewModel {
             dish.desc = item.description
             dish.price = item.price
             dish.image = item.image
-            print("Created dish: \(dish)")
         }
         
         do {
             try context.save()
-            print("Context saved: \(context)")
         } catch {
             print("Failed to save context: \(context)")
         }
