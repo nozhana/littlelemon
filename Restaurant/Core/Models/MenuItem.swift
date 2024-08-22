@@ -40,6 +40,6 @@ extension Dish {
 
 extension MenuItem {
     static var placeholder: Self {
-        .init(title: "Lorem Ipsum Dolor Sit Amet", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ligula quam, finibus at lectus eu, accumsan sollicitudin velit. Nunc hendrerit id mauris ac accumsan. Fusce faucibus elit sit amet massa rutrum efficitur. Sed congue arcu in felis auctor varius. Aliquam malesuada nisi felis, sed vulputate urna posuere non. In viverra libero at accumsan feugiat.", price: "10", image: "")
+        .init(title: "Lorem Ipsum Dolor Sit Amet", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ligula quam, finibus at lectus eu, accumsan sollicitudin velit. Nunc hendrerit id mauris ac accumsan.", price: "10", image: "")
     }
 }

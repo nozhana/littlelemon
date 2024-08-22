@@ -77,7 +77,7 @@ struct Menu: View {
     
     private var menuListView: some View {
         VStack {
-            FetchedObjects { (dishes: [Dish]) in
+            FetchedObjects(predicate: viewModel.searchQuery.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "title BEGINSWITH[cd] %@", viewModel.searchQuery)) { (dishes: [Dish]) in
                 if dishes.isEmpty {
                     ForEach(0..<10, content: { _ in
                         MenuCard(item: .placeholder)
@@ -85,7 +85,7 @@ struct Menu: View {
                             .shimmering()
                     })
                 } else {
-                    ForEach(viewModel.searchQuery.isEmpty ? dishes : dishes.filter { ($0.title?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true) || ($0.desc?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true)}) { dish in
+                    ForEach(dishes) { dish in
                         if let item = dish.menuItem {
                             MenuCard(item: item)
                                 .onTapGesture {

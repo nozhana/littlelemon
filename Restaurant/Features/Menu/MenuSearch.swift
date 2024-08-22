@@ -28,8 +28,8 @@ struct MenuSearch: View {
         ScrollView {
             LazyVStack(spacing: 8, pinnedViews: .sectionHeaders) {
                 Section {
-                    FetchedObjects { (dishes: [Dish]) in
-                        ForEach(searchQuery.isEmpty ? dishes : dishes.filter { ($0.title?.lowercased().contains(searchQuery.lowercased()) ?? true) || ($0.desc?.lowercased().contains(searchQuery.lowercased()) ?? true) }) { dish in
+                    FetchedObjects(predicate: searchQuery.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "title BEGINSWITH[cd] %@", searchQuery)) { (dishes: [Dish]) in
+                        ForEach(dishes) { dish in
                             if let item = dish.menuItem {
                                 MenuCard(item: item)
                                     .onTapGesture {
