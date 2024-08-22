@@ -11,6 +11,7 @@ struct MenuSearch: View {
     @Binding var searchQuery: String
     
     @State private var state: LLTextFieldState = .normal
+    @State private var selectedItem: MenuItem?
     @FocusState private var isFocused: Bool
     
     @Environment(\.dismiss) private var dismiss
@@ -29,7 +30,13 @@ struct MenuSearch: View {
                 Section {
                     FetchedObjects { (dishes: [Dish]) in
                         ForEach(searchQuery.isEmpty ? dishes : dishes.filter { ($0.title?.lowercased().contains(searchQuery.lowercased()) ?? true) || ($0.desc?.lowercased().contains(searchQuery.lowercased()) ?? true) }) { dish in
-                            MenuCard(dish: dish)
+                            if let item = dish.menuItem {
+                                MenuCard(item: item)
+                                    .onTapGesture {
+                                        selectedItem = item
+                                    }
+                                    .sheet(item: $selectedItem, content: MenuDetail.init)
+                            }
                         } // ForEach
                     } // FetchedObjects
                 } header: {

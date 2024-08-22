@@ -13,6 +13,8 @@ struct Menu: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject private var theme: ThemeUtil
     
+    @State private var selectedItem: MenuItem?
+    
     private var profileImageView: some View {
         if let profileImage = viewModel.profileImage {
             Image(uiImage: profileImage)
@@ -37,6 +39,7 @@ struct Menu: View {
                 .clipShape(Circle())
         } // HStack
         .padding(.init(top: 20, leading: 24, bottom: 20, trailing: 24))
+        .ignoresSafeArea(edges: .top)
         .background(theme.color[\.surface.primary]) // TODO: Color.background
     }
     
@@ -83,7 +86,13 @@ struct Menu: View {
                     ProgressView()
                 }
                 ForEach(viewModel.searchQuery.isEmpty ? dishes : dishes.filter { ($0.title?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true) || ($0.desc?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true)}) { dish in
-                    MenuCard(dish: dish)
+                    if let item = dish.menuItem {
+                        MenuCard(item: item)
+                            .onTapGesture {
+                                selectedItem = item
+                            }
+                            .sheet(item: $selectedItem, content: MenuDetail.init)
+                    }
                 } // ForEach
             } // FetchedObjects
         } // VStack

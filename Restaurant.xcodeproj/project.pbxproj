@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310CD92B2C24F57B000D092C /* MenuDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310CD92A2C24F57B000D092C /* MenuDetail.swift */; };
 		315C33802BBEDDDA00EB84CE /* RestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C337F2BBEDDDA00EB84CE /* RestaurantApp.swift */; };
 		315C33842BBEDDDC00EB84CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315C33832BBEDDDC00EB84CE /* Assets.xcassets */; };
 		315C33872BBEDDDC00EB84CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315C33862BBEDDDC00EB84CE /* Preview Assets.xcassets */; };
@@ -84,6 +85,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		310CD92A2C24F57B000D092C /* MenuDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetail.swift; sourceTree = "<group>"; };
 		315C337C2BBEDDDA00EB84CE /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315C337F2BBEDDDA00EB84CE /* RestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantApp.swift; sourceTree = "<group>"; };
 		315C33832BBEDDDC00EB84CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				316BCEDF2C21C30E00F19E69 /* MenuCard.swift */,
 				3169E4E82C1ED0F20064FA7E /* MenuSearch.swift */,
 				31E02CAE2C1B773B00FD8E0C /* MenuViewModel.swift */,
+				310CD92A2C24F57B000D092C /* MenuDetail.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				3167D91E2C245A8200555410 /* FullscreenSnackbarStyle.swift in Sources */,
 				31D364232C23393100B84BD3 /* AnySnackbarStyle.swift in Sources */,
 				319CF18C2C20D19B00E5AD59 /* ExampleDatabase.xcdatamodeld in Sources */,
+				310CD92B2C24F57B000D092C /* MenuDetail.swift in Sources */,
 				31F6380E2C235DDF004837B5 /* ThemeUtil.swift in Sources */,
 				319CF1702C20C24E00E5AD59 /* MenuItem.swift in Sources */,
 				31E02CAF2C1B773B00FD8E0C /* MenuViewModel.swift in Sources */,

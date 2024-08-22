@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct MenuCard: View {
-    let dish: Dish
+    let item: MenuItem
     
     @EnvironmentObject private var theme: ThemeUtil
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text(dish.title ?? "Unnamed")
+                Text(item.title)
                     .font(.cardTitle)
                     .foregroundStyle(theme.color[\.text.primary])
-                Text(dish.desc ?? "No description")
+                Text(item.description)
                     .font(.body)
                     .foregroundStyle(theme.color[\.text.secondary])
                 Spacer()
-                Text("$\(dish.price ?? "--")")
+                Text("$\(item.price)")
                     .font(.highlight)
                     .foregroundStyle(theme.color[\.text.primary])
             } // VStack
             Spacer()
-            AsyncImage(url: URL(string: dish.image ?? "")) { image in
+            AsyncImage(url: URL(string: item.image)) { image in
                 image
                     .resizable()
                     .scaledToFill()

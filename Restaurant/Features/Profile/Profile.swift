@@ -102,36 +102,38 @@ struct Profile: View {
         .buttonStyle(.bordered)
     }
     
-    private func makeRow(systemImage: String, tag: String, content: Binding<String>, placeholder: String = "") -> some View {
-        HStack {
-            Label(tag, systemImage: systemImage)
-                .imageScale(.large)
-                .font(.body)
-                .foregroundStyle(theme.color[\.text.primary])
-            Spacer()
-            TextField(placeholder, text: content)
-                .font(.highlight)
-                .foregroundStyle(theme.color[\.text.primary])
-                .textFieldStyle(.plain)
-                .padding()
-                .background {
-                    if viewModel.isEditing {
+    private func makeTextField(systemImage: String, tag: String, content: Binding<String>, placeholder: String = "") -> some View {
+        GeometryReader { geo in
+            VStack(alignment: .leading) {
+                TextField(placeholder, text: content)
+                    .font(.highlight)
+                    .foregroundStyle(theme.color[\.text.primary])
+                    .textFieldStyle(.plain)
+                    .padding()
+                    .background {
                         RoundedRectangle.roundedRect8
-                            .fill(theme.color[\.surface.secondary])
+                            .fill(theme.color[viewModel.isEditing ? \.surface.secondary : \.surface.primary])
                     }
-                }
-                .frame(width: 160)
-                .disabled(!viewModel.isEditing)
-        }
+                    .frame(width: geo.size.width)
+                    .disabled(!viewModel.isEditing)
+                Label(tag, systemImage: systemImage)
+                    .imageScale(.large)
+                    .font(.caption)
+                    .foregroundStyle(theme.color[\.text.secondary])
+            } // VStack
+            .padding(.vertical, 8)
+        } // GeometryReader
     }
     
     var body: some View {
         VStack(spacing: 8) {
+            Spacer(minLength: 64)
             tooltip
             profileImage
-            makeRow(systemImage: "person", tag: "First name", content: $firstName)
-            makeRow(systemImage: "person.fill", tag: "Last name", content: $lastName)
-            makeRow(systemImage: "envelope", tag: "Email address", content: $email)
+            makeTextField(systemImage: "person", tag: "First name", content: $firstName)
+            makeTextField(systemImage: "person.fill", tag: "Last name", content: $lastName)
+            makeTextField(systemImage: "envelope", tag: "Email address", content: $email)
+            Spacer(minLength: 64)
             if viewModel.isEditing {
                 confirmButton
             } else {
@@ -147,6 +149,9 @@ struct Profile: View {
             firstName = viewModel.firstName
             lastName = viewModel.lastName
             email = viewModel.email
+        }
+        .onDisappear {
+            viewModel.isEditing = false
         }
     }
 }
