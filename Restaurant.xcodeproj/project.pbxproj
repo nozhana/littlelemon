@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		310CD92B2C24F57B000D092C /* MenuDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310CD92A2C24F57B000D092C /* MenuDetail.swift */; };
+		313818E82C7782CD0069928C /* ShimmerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313818E72C7782CD0069928C /* ShimmerModifier.swift */; };
 		315C33802BBEDDDA00EB84CE /* RestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C337F2BBEDDDA00EB84CE /* RestaurantApp.swift */; };
 		315C33842BBEDDDC00EB84CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315C33832BBEDDDC00EB84CE /* Assets.xcassets */; };
 		315C33872BBEDDDC00EB84CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315C33862BBEDDDC00EB84CE /* Preview Assets.xcassets */; };
@@ -86,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		310CD92A2C24F57B000D092C /* MenuDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetail.swift; sourceTree = "<group>"; };
+		313818E72C7782CD0069928C /* ShimmerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerModifier.swift; sourceTree = "<group>"; };
 		315C337C2BBEDDDA00EB84CE /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315C337F2BBEDDDA00EB84CE /* RestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantApp.swift; sourceTree = "<group>"; };
 		315C33832BBEDDDC00EB84CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		313818E62C7782A80069928C /* Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				313818E72C7782CD0069928C /* ShimmerModifier.swift */,
+			);
+			path = Shimmer;
+			sourceTree = "<group>";
+		};
 		315C33732BBEDDDA00EB84CE = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +551,7 @@
 		31E02CD72C1C4B3300FD8E0C /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				313818E62C7782A80069928C /* Shimmer */,
 				31D364192C2334D400B84BD3 /* Snackbar */,
 			);
 			path = ViewModifiers;
@@ -694,6 +705,7 @@
 				3169E4D92C1DB3090064FA7E /* FileUtil.swift in Sources */,
 				31E02CA82C1B768B00FD8E0C /* BaseTabItem.swift in Sources */,
 				31D363FD2C232CFF00B84BD3 /* SurfaceColorTheme.swift in Sources */,
+				313818E82C7782CD0069928C /* ShimmerModifier.swift in Sources */,
 				31C799CC2C1849A000F7FE55 /* Factory.swift in Sources */,
 				31D3640B2C232DC300B84BD3 /* IconColors.swift in Sources */,
 				316BCEE02C21C30E00F19E69 /* MenuCard.swift in Sources */,

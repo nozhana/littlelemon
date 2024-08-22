@@ -32,7 +32,9 @@ struct MenuCard: View {
                     .resizable()
                     .scaledToFill()
             } placeholder: {
-                ProgressView()
+                Rectangle()
+                    .fill(.background)
+                    .shimmering()
             }
             .frame(width: 140, height: 140)
             .scaledToFill()

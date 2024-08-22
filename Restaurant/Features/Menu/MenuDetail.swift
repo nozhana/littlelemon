@@ -35,7 +35,9 @@ struct MenuDetail: View {
                         .scaledToFill()
                         .scaleEffect(magnification)
                 } placeholder: {
-                    ProgressView()
+                    Rectangle()
+                        .fill(.background)
+                        .shimmering()
                 } // AsyncImage
                 .frame(width: geo.size.width, height: 340)
                 .background(.regularMaterial)

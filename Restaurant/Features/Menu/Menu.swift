@@ -79,21 +79,22 @@ struct Menu: View {
         VStack {
             FetchedObjects { (dishes: [Dish]) in
                 if dishes.isEmpty {
-                    Text("Loading")
-                        .font(.highlight)
-                        .foregroundStyle(theme.color[\.text.secondary])
-                        .padding(.top, 16)
-                    ProgressView()
-                }
-                ForEach(viewModel.searchQuery.isEmpty ? dishes : dishes.filter { ($0.title?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true) || ($0.desc?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true)}) { dish in
-                    if let item = dish.menuItem {
-                        MenuCard(item: item)
-                            .onTapGesture {
-                                selectedItem = item
-                            }
-                            .sheet(item: $selectedItem, content: MenuDetail.init)
-                    }
-                } // ForEach
+                    ForEach(0..<10, content: { _ in
+                        MenuCard(item: .placeholder)
+                            .redacted(reason: .placeholder)
+                            .shimmering()
+                    })
+                } else {
+                    ForEach(viewModel.searchQuery.isEmpty ? dishes : dishes.filter { ($0.title?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true) || ($0.desc?.lowercased().contains(viewModel.searchQuery.lowercased()) ?? true)}) { dish in
+                        if let item = dish.menuItem {
+                            MenuCard(item: item)
+                                .onTapGesture {
+                                    selectedItem = item
+                                }
+                                .sheet(item: $selectedItem, content: MenuDetail.init)
+                        }
+                    } // ForEach
+                } // if/else
             } // FetchedObjects
         } // VStack
         .padding(.horizontal, 8)
