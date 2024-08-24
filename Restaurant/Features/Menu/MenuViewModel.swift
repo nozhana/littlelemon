@@ -48,6 +48,7 @@ class MenuViewModel: BaseViewModel {
             dish.desc = item.description
             dish.price = item.price
             dish.image = item.image
+            dish.category = item.category.rawValue
         }
         
         do {

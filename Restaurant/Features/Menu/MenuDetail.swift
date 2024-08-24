@@ -33,13 +33,15 @@ struct MenuDetail: View {
                     image
                         .resizable()
                         .scaledToFill()
+                        .frame(width: geo.size.width, height: 340)
+                        .clipped()
                         .scaleEffect(magnification)
                 } placeholder: {
                     Rectangle()
                         .fill(.background)
+                        .frame(height: 340)
                         .shimmering()
                 } // AsyncImage
-                .frame(width: geo.size.width, height: 340)
                 .background(.regularMaterial)
                 .overlay(alignment: .topTrailing) {
                     Button {
@@ -96,5 +98,5 @@ struct MenuDetail: View {
 }
 
 #Preview {
-    MenuDetail(item: .init(title: "Greek Salad", description: "The famous greek salad of crispy lettuce, peppers, olives, our Chicago.", price: "10", image: "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/greekSalad.jpg?raw=true"))
+    MenuDetail(item: .init(title: "Greek Salad", description: "The famous greek salad of crispy lettuce, peppers, olives, our Chicago.", price: "10", image: "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/greekSalad.jpg?raw=true", category: .mains))
 }

@@ -13,12 +13,14 @@ struct MenuItem: Codable, Identifiable, Hashable {
     let description: String
     let price: String
     let image: String
+    let category: MenuCategory
     
     enum CodingKeys: CodingKey {
         case title
         case description
         case price
         case image
+        case category
     }
 }
 
@@ -27,8 +29,9 @@ extension MenuItem {
         guard let title = dish.title,
               let description = dish.desc,
               let price = dish.price,
-              let image = dish.image else { return nil }
-        self.init(title: title, description: description, price: price, image: image)
+              let image = dish.image,
+              let category = dish.category else { return nil }
+        self.init(title: title, description: description, price: price, image: image, category: MenuCategory(rawValue: category) ?? .mains)
     }
 }
 
@@ -40,6 +43,6 @@ extension Dish {
 
 extension MenuItem {
     static var placeholder: Self {
-        .init(title: "Lorem Ipsum Dolor Sit Amet", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ligula quam, finibus at lectus eu, accumsan sollicitudin velit. Nunc hendrerit id mauris ac accumsan.", price: "10", image: "")
+        .init(title: "Lorem Ipsum", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ligula quam.", price: "10", image: "", category: .mains)
     }
 }

@@ -14,6 +14,7 @@ struct Menu: View {
     @EnvironmentObject private var theme: ThemeUtil
     
     @State private var selectedItem: MenuItem?
+    @State private var selectedCategory: MenuCategory?
     
     private var profileImageView: some View {
         if let profileImage = viewModel.profileImage {
@@ -85,7 +86,10 @@ struct Menu: View {
                             .shimmering()
                     })
                 } else {
-                    ForEach(dishes) { dish in
+                    ForEach(dishes.filter {
+                        guard let selectedCategory else { return true }
+                        return $0.category == selectedCategory.rawValue
+                    }) { dish in
                         if let item = dish.menuItem {
                             MenuCard(item: item)
                                 .onTapGesture {
@@ -100,13 +104,47 @@ struct Menu: View {
         .padding(.horizontal, 8)
     }
     
+    private var menuBreakdownView: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Order for delivery!")
+                .textCase(.uppercase)
+                .font(.sectionTitle)
+                .foregroundStyle(theme.color[\.text.primary])
+                .padding(.leading, 25)
+            ScrollView(.horizontal) {
+                HStack(spacing: 16) {
+                    Spacer(minLength: 8)
+                    ForEach(MenuCategory.allCases, id: \.hashValue) { category in
+                        Text(category.rawValue.capitalized)
+                            .font(.sectionContent)
+                            .padding(.init(top: 6, leading: 8, bottom: 6, trailing: 8))
+                            .foregroundStyle(theme.color[selectedCategory == category ? \.text.contrast : \.text.secondary])
+                            .background(theme.color[selectedCategory == category ? \.surface.action : \.surface.secondary])
+                            .clipShape(.roundedRect16)
+                            .onTapGesture {
+                                withAnimation {
+                                    guard selectedCategory != category else {
+                                        selectedCategory = nil
+                                        return
+                                    }
+                                    selectedCategory = category
+                                }
+                            }
+                    } // ForEach
+                } // HStack
+                .padding(.vertical, 16)
+            } // ScrollView
+        } // VStack
+        .padding(.vertical, 16)
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack(pinnedViews: .sectionHeaders) {
                     Section {
                         heroView
-                        Text("Order for delivery!")
+                        menuBreakdownView
                         menuListView
                     } header: {
                         headerView
