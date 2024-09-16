@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension Color {
-    static func hex(_ hexCode: String, opacityPercent: CGFloat = 100) -> Self? {
-        var code = hexCode
+    init?(hex: String, opacityPercent: CGFloat = 100) {
+        var code = hex
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .trimmingCharacters(in: ["#"])
         guard [2,3,6].contains(code.count) else { return nil }
@@ -36,17 +36,18 @@ extension Color {
         
         let opacity = opacityPercent / 100
         
-        return Color(red: rgbValues[0], green: rgbValues[1], blue: rgbValues[2], opacity: opacity)
+        self.init(red: rgbValues[0], green: rgbValues[1], blue: rgbValues[2], opacity: opacity)
     }
     
-    private static func resolveHexCharacter(_ character: Character) -> Int? {
-        if let intValue = Int(String(character)) {
-            return intValue
-        } else if let hexDigit = HexDigit(hex: character) {
-            return hexDigit.rawValue
-        } else {
-            return nil
-        }
+}
+
+fileprivate func resolveHexCharacter(_ character: Character) -> Int? {
+    if let intValue = Int(String(character)) {
+        return intValue
+    } else if let hexDigit = HexDigit(hex: character) {
+        return hexDigit.rawValue
+    } else {
+        return nil
     }
 }
 

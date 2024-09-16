@@ -14,16 +14,6 @@ struct MenuSearch: View {
     @State private var selectedItem: MenuItem?
     @FocusState private var isFocused: Bool
     
-    @Environment(\.dismiss) private var dismiss
-    
-    private var backButton: some View {
-        Button("Back", systemImage: "chevron.left") {
-            dismiss()
-        }
-        .font(.highlight)
-        .buttonStyle(.borderedProminent)
-    }
-    
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 8, pinnedViews: .sectionHeaders) {
@@ -46,13 +36,9 @@ struct MenuSearch: View {
                 } // Section
             } // LazyVStack
         } // ScrollView
+        .scrollIndicators(.hidden)
         .padding(.init(top: 16, leading: 16, bottom: 0, trailing: 16))
-        .overlay(alignment: .bottomTrailing) {
-            backButton
-                .padding(8)
-        }
         .toolbar(.hidden)
-        .scrollDismissesKeyboard(.never)
         .onAppear {
             isFocused = true
         }

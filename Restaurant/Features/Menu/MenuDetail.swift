@@ -12,6 +12,8 @@ struct MenuDetail: View {
     
     @State private var magnification = 1.0
     
+    @State private var isShowingComingSoon = false
+    
     @Environment(\.dismiss) private var dismiss
     
     private var magnificationGesture: some Gesture {
@@ -49,18 +51,18 @@ struct MenuDetail: View {
                     } label: {
                         Circle()
                             .fill(.regularMaterial)
-                            .frame(width: 44, height: 44)
+                            .frame(width: 36, height: 36)
                             .overlay {
                                 Image(systemName: "xmark")
                                     .resizable()
                                     .scaledToFit()
                                     .imageScale(.small)
                                     .bold()
-                                    .frame(width: 18, height: 18)
+                                    .frame(width: 14, height: 14)
                                     .tint(.red)
                             }
-                            .shadow(color: .black.opacity(0.12), radius: 8, y: 4)
-                            .padding(12)
+                            .shadow(color: .black.opacity(0.06), radius: 6, y: 2)
+                            .padding(18)
                     }
                     
                 }
@@ -87,12 +89,18 @@ struct MenuDetail: View {
                 
                 Button("Add to Cart", systemImage: "cart.badge.plus") {
                     // TODO: Add to cart
+                    isShowingComingSoon.toggle()
                 }
                 .buttonStyle(.borderedProminent)
-                .font(.sectionTitle)
+                .font(.headline)
             } // VStack
             .gesture(magnificationGesture)
         } // GeometryReader
+        .alert("Coming Soon", isPresented: $isShowingComingSoon, actions: {
+            Button("OK") {}
+        }, message: {
+            Text("This feature hasn't been implemented yet.")
+        })
         .navigationTitle(item.title)
     }
 }

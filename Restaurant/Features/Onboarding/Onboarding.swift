@@ -28,31 +28,27 @@ struct Onboarding: View {
     }
     
     var body: some View {
-        VStack(spacing: 18) {
-            Image(systemName: "globe")
-                .imageScale(.large)
-            Text("Little Lemon")
-                .font(.system(.largeTitle, design: .serif, weight: .bold))
+        VStack(spacing: 16) {
+            Image("LittleLemonLogo", bundle: .main)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 240)
             if viewModel.isOnboarded,
                !viewModel.firstName.isEmpty {
-                Group {
-                    Text("Welcome, \(viewModel.firstName.capitalized)!")
-                        .font(.title.bold())
-                    Button("Continue", systemImage: "arrow.right") {
-                        dismiss()
-                    }
-                    .buttonStyle(.borderedProminent)
-                    Rectangle()
-                        .fill(.clear)
-                        .frame(height: 32)
-                    Button("Clear data", systemImage: "trash") {
-                        viewModel.clearData()
-                        clearForm()
-                    }
-                    .font(.callout.bold())
-                    .imageScale(.small)
-                    .buttonStyle(.bordered)
-                } // Group
+                Text("Welcome, \(viewModel.firstName.capitalized)!")
+                    .font(.displayLarge)
+                Spacer()
+                Button("Continue", systemImage: "arrow.right") {
+                    dismiss()
+                }
+                .buttonStyle(.borderedProminent)
+                Button("Clear data", systemImage: "trash") {
+                    viewModel.clearData()
+                    clearForm()
+                }
+                .font(.callout.bold())
+                .imageScale(.small)
+                .buttonStyle(.bordered)
             } else {
                 Group {
                     TextField("Your first name", text: $firstName)
@@ -89,7 +85,7 @@ struct Onboarding: View {
             } // if
         } // VStack
         .padding()
-        .frame(height: 360, alignment: .top)
+//        .frame(height: 360, alignment: .top)
         .interactiveDismissDisabled()
     }
 }

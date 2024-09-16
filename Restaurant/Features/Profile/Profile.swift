@@ -62,9 +62,10 @@ struct Profile: View {
     }
     
     private var tooltip: some View {
-        Text("Hold your avatar to choose a new photo.")
+        Text("Tap and hold to choose a new photo.")
             .font(.tagline)
             .foregroundStyle(theme.color[\.text.disabled])
+            .padding(.vertical, 4)
     }
     
     private var logoutButton: some View {
@@ -73,7 +74,6 @@ struct Profile: View {
         }
         .buttonStyle(.borderedProminent)
         .font(.highlight)
-        .padding()
     }
     
     @ViewBuilder
@@ -89,7 +89,9 @@ struct Profile: View {
             viewModel.isEditing = true
         }
         .font(.highlight)
-        .buttonStyle(.bordered)
+        .foregroundStyle(theme.color[\.text.secondary])
+        .buttonStyle(.borderedProminent)
+        .tint(theme.color[\.surface.secondary])
     }
     
     private var confirmButton: some View {
@@ -99,48 +101,57 @@ struct Profile: View {
             viewModel.isEditing = false
         }
         .font(.highlight)
-        .buttonStyle(.bordered)
+        .buttonStyle(.borderedProminent)
     }
     
     private func makeTextField(systemImage: String, tag: String, content: Binding<String>, placeholder: String = "") -> some View {
-        GeometryReader { geo in
-            VStack(alignment: .leading) {
-                TextField(placeholder, text: content)
-                    .font(.highlight)
-                    .foregroundStyle(theme.color[\.text.primary])
-                    .textFieldStyle(.plain)
-                    .padding()
-                    .background {
-                        RoundedRectangle.roundedRect8
-                            .fill(theme.color[viewModel.isEditing ? \.surface.secondary : \.surface.primary])
-                    }
-                    .frame(width: geo.size.width)
-                    .disabled(!viewModel.isEditing)
-                Label(tag, systemImage: systemImage)
-                    .imageScale(.large)
-                    .font(.caption)
-                    .foregroundStyle(theme.color[\.text.secondary])
-            } // VStack
-            .padding(.vertical, 8)
-        } // GeometryReader
+        VStack(alignment: .leading) {
+            TextField(placeholder, text: content)
+                .font(.highlight)
+                .foregroundStyle(theme.color[\.text.primary])
+                .textFieldStyle(.plain)
+                .padding()
+                .background {
+                    RoundedRectangle.roundedRect8
+                        .fill(theme.color[viewModel.isEditing ? \.surface.secondary : \.surface.primary])
+                }
+                .disabled(!viewModel.isEditing)
+            Label(tag, systemImage: systemImage)
+                .imageScale(.large)
+                .font(.caption)
+                .foregroundStyle(theme.color[\.text.secondary])
+        } // VStack
+        .padding(.vertical, 8)
     }
     
     var body: some View {
-        VStack(spacing: 8) {
-            Spacer(minLength: 64)
-            tooltip
-            profileImage
-            makeTextField(systemImage: "person", tag: "First name", content: $firstName)
-            makeTextField(systemImage: "person.fill", tag: "Last name", content: $lastName)
-            makeTextField(systemImage: "envelope", tag: "Email address", content: $email)
-            Spacer(minLength: 64)
-            if viewModel.isEditing {
-                confirmButton
-            } else {
-                editButton
-            }
-            logoutButton
-        }
+        ScrollView {
+            LazyVStack(pinnedViews: [.sectionHeaders, .sectionFooters]) {
+                Section {
+                    makeTextField(systemImage: "person", tag: "First name", content: $firstName)
+                    makeTextField(systemImage: "person.fill", tag: "Last name", content: $lastName)
+                    makeTextField(systemImage: "envelope", tag: "Email address", content: $email)
+                } header: {
+                    VStack {
+                        profileImage
+                        tooltip
+                    } // VStack
+                    .frame(width: UIScreen.main.bounds.width)
+                    .background(.background)
+                } footer: {
+                    HStack {
+                        logoutButton
+                        Spacer()
+                        if viewModel.isEditing {
+                            confirmButton
+                        } else {
+                            editButton
+                        }
+                    } // HStack
+                } // Section/footer
+            } // LazyVStack
+        } // ScrollView
+        .scrollIndicators(.hidden)
         .padding(.horizontal, 24)
         .alert("Log out and clear all data?", isPresented: $isShowingLogoutAlert) {
             logoutActions
@@ -153,6 +164,7 @@ struct Profile: View {
         .onDisappear {
             viewModel.isEditing = false
         }
+        .navigationTitle("Profile")
     }
 }
 

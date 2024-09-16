@@ -23,25 +23,25 @@ enum PrimitiveColor {
     var value: Color {
         switch self {
         case .nandor:
-            return .hex("#495E57")!
+            return .init(hex: "#495E57")!
         case .ripeLemon:
-            return .hex("#F4CE14")!
+            return .init(hex: "#F4CE14")!
         case .apricot:
-            return .hex("#EE9972")!
+            return .init(hex: "#EE9972")!
         case .apricot50:
-            return .hex("#EE9972", opacityPercent: 50)!
+            return .init(hex: "#EE9972", opacityPercent: 50)!
         case .apricot24:
-            return .hex("#EE9972", opacityPercent: 24)!
+            return .init(hex: "#EE9972", opacityPercent: 24)!
         case .apricotPeach:
-            return .hex("#FBDABB")!
+            return .init(hex: "#FBDABB")!
         case .seaFoam:
-            return .hex("#47F0C8")!
+            return .init(hex: "#47F0C8")!
         case .haze:
-            return .hex("#EDEFEE")!
+            return .init(hex: "#EDEFEE")!
         case .cobblestone:
-            return .hex("#6B")!
+            return .init(hex: "#6B")!
         case .mineshaft:
-            return .hex("#33")!
+            return .init(hex: "#33")!
         case .white:
             return .white
         case .white24:

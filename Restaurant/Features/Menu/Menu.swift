@@ -16,6 +16,9 @@ struct Menu: View {
     @State private var selectedItem: MenuItem?
     @State private var selectedCategory: MenuCategory?
     
+    @State private var isShowingSearch: Bool = false
+    @FocusState private var isSearchFocused: Bool
+    
     private var profileImageView: some View {
         if let profileImage = viewModel.profileImage {
             Image(uiImage: profileImage)
@@ -33,20 +36,23 @@ struct Menu: View {
             Spacer()
             Image("LittleLemonLogo", bundle: .main)
             Spacer()
-            profileImageView
-                .scaledToFill()
-                .frame(width: 44, height: 44)
-                .background(theme.color[\.surface.secondary])
-                .clipShape(Circle())
+            NavigationLink {
+                Profile()
+            } label: {
+                profileImageView
+                    .scaledToFill()
+                    .frame(width: 44, height: 44)
+                    .background(theme.color[\.surface.secondary])
+                    .clipShape(Circle())
+            } // NavigationLink/label
         } // HStack
         .padding(.init(top: 20, leading: 24, bottom: 20, trailing: 24))
-        .ignoresSafeArea(edges: .top)
         .background(theme.color[\.surface.primary]) // TODO: Color.background
     }
     
     private var heroView: some View {
         VStack(alignment: .leading, spacing: 18) {
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: -8) {
                 Text("Little Lemon")
                     .font(.displayLarge)
                     .foregroundStyle(theme.color[\.text.title]) // TODO: Color.title
@@ -54,23 +60,29 @@ struct Menu: View {
                     .font(.subtitle)
                     .foregroundStyle(theme.color[\.text.contrast]) // TODO: Color.contrast
             } // VStack
-            HStack(spacing: 18) {
+            HStack {
                 Text("We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
                     .font(.leadText)
                     .foregroundStyle(theme.color[\.text.contrast]) // TODO: Color.contrast
+                Spacer()
                 Image("hero", bundle: .main)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 180, height: 180)
                     .clipShape(.roundedRect16)
             } // HStack
-            NavigationLink {
-                MenuSearch(searchQuery: $viewModel.searchQuery)
-            } label: {
-                TextField("Search items", text: $viewModel.searchQuery)
-                    .textFieldStyle(.llTextFieldStyle(state: $viewModel.searchState, content: $viewModel.searchQuery, placeholder: "", icon: "magnifyingglass", fixedHeight: true))
-            } // NavigationLink
-            .buttonStyle(.plain)
+            TextField("Search items", text: $viewModel.searchQuery)
+                .textFieldStyle(.llTextFieldStyle(state: $viewModel.searchState, content: $viewModel.searchQuery, placeholder: "", icon: "magnifyingglass", fixedHeight: true))
+                .focused($isSearchFocused)
+                .sheet(isPresented: $isShowingSearch) {
+                    isSearchFocused = false
+                } content: {
+                    MenuSearch(searchQuery: $viewModel.searchQuery)
+                }
+                .onTapGesture {
+                    isShowingSearch.toggle()
+                    isSearchFocused = false
+                }
         } // VStack
         .padding(24)
         .background(theme.color[\.surface.hero]) // TODO: Color.nandor
@@ -110,10 +122,10 @@ struct Menu: View {
                 .textCase(.uppercase)
                 .font(.sectionTitle)
                 .foregroundStyle(theme.color[\.text.primary])
-                .padding(.leading, 25)
+                .padding(.leading, 16)
             ScrollView(.horizontal) {
                 HStack(spacing: 16) {
-                    Spacer(minLength: 8)
+                    Spacer(minLength: 1)
                     ForEach(MenuCategory.allCases, id: \.hashValue) { category in
                         Text(category.rawValue.capitalized)
                             .font(.sectionContent)
@@ -151,8 +163,8 @@ struct Menu: View {
                     } // Section
                 } // LazyVStack
             } // ScrollView
-            .padding(.vertical, 0.1)
         } // NavigationStack
+        .ignoresSafeArea(edges: .bottom)
         .onReceive(viewModel.$menuList) { output in
             guard let output else { return }
             viewModel.persistMenu(output.menu, context: viewContext)
