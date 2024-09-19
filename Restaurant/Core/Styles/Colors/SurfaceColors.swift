@@ -12,6 +12,7 @@ struct SurfaceColorsLight: SurfaceColorTheme {
     let secondary: PrimitiveColor = .haze
     let action: PrimitiveColor = .seaFoam
     let hero: PrimitiveColor = .nandor
+    let error: PrimitiveColor = .apricot
 }
 
 struct SurfaceColorsDark: SurfaceColorTheme {
@@ -19,4 +20,5 @@ struct SurfaceColorsDark: SurfaceColorTheme {
     let secondary: PrimitiveColor = .mineshaft
     let action: PrimitiveColor = .seaFoam
     let hero: PrimitiveColor = .nandor
+    let error: PrimitiveColor = .apricot
 }

@@ -72,8 +72,7 @@ struct Profile: View {
         Button("Log out", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
             isShowingLogoutAlert = true
         }
-        .buttonStyle(.borderedProminent)
-        .font(.highlight)
+        .buttonStyle(CustomButtonStyle(colors: theme.color, role: .destructive))
     }
     
     @ViewBuilder
@@ -89,10 +88,7 @@ struct Profile: View {
         Button("Edit information", systemImage: "pencil") {
             viewModel.isEditing = true
         }
-        .font(.highlight)
-        .foregroundStyle(theme.color[\.text.secondary])
-        .buttonStyle(.borderedProminent)
-        .tint(theme.color[\.surface.secondary])
+        .buttonStyle(CustomButtonStyle(colors: theme.color, role: .prominent))
     }
     
     private var confirmButton: some View {
@@ -101,8 +97,7 @@ struct Profile: View {
             viewModel.editProfileInformation(.init(firstName: firstName, lastName: lastName, email: email))
             viewModel.isEditing = false
         }
-        .font(.highlight)
-        .buttonStyle(.borderedProminent)
+        .buttonStyle(CustomButtonStyle(colors: theme.color, role: .ghost))
     }
     
     private func makeTextField(systemImage: String, tag: String, content: Binding<String>, placeholder: String = "") -> some View {

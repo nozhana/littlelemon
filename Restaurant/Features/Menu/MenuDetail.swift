@@ -16,6 +16,8 @@ struct MenuDetail: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject private var theme: ThemeUtil
+    
     private var magnificationGesture: some Gesture {
         MagnificationGesture()
             .onChanged { value in
@@ -91,8 +93,7 @@ struct MenuDetail: View {
                     // TODO: Add to cart
                     isShowingComingSoon.toggle()
                 }
-                .buttonStyle(.borderedProminent)
-                .font(.headline)
+                .buttonStyle(CustomButtonStyle(colors: theme.color, role: .prominent))
             } // VStack
             .gesture(magnificationGesture)
         } // GeometryReader

@@ -1,5 +1,5 @@
 //
-//  LLTextFieldStyle.swift
+//  CustomTextFieldStyle.swift
 //  Restaurant
 //
 //  Created by Nozhan Amiri on 6/9/24.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct LLTextFieldStyle: TextFieldStyle {
-    @Binding var state: LLTextFieldState
+struct CustomTextFieldStyle: TextFieldStyle {
+    @Binding var state: CustomTextFieldState
     @Binding var content: String
     let placeholder: String
     let icon: String?
@@ -17,7 +17,7 @@ struct LLTextFieldStyle: TextFieldStyle {
     
     @FocusState private var focused: Bool
     
-    init(state: Binding<LLTextFieldState>, content: Binding<String>, placeholder: String, icon: String? = nil, errorMessage: String? = nil, fixedHeight: Bool = false) {
+    init(state: Binding<CustomTextFieldState>, content: Binding<String>, placeholder: String, icon: String? = nil, errorMessage: String? = nil, fixedHeight: Bool = false) {
         self._state = state
         self._content = content
         self.placeholder = placeholder
@@ -87,8 +87,8 @@ struct LLTextFieldStyle: TextFieldStyle {
     } // _body
 }
 
-extension TextFieldStyle where Self == LLTextFieldStyle {
-    static func llTextFieldStyle(state: Binding<LLTextFieldState>, content: Binding<String>, placeholder: String, icon: String? = nil, errorMessage: String? = nil, fixedHeight: Bool = false) -> Self {
+extension TextFieldStyle where Self == CustomTextFieldStyle {
+    static func customTextFieldStyle(state: Binding<CustomTextFieldState>, content: Binding<String>, placeholder: String, icon: String? = nil, errorMessage: String? = nil, fixedHeight: Bool = false) -> Self {
         .init(state: state, content: content, placeholder: placeholder, icon: icon, errorMessage: errorMessage, fixedHeight: fixedHeight)
     }
 }

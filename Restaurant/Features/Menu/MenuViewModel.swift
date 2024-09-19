@@ -11,7 +11,7 @@ import UIKit
 
 class MenuViewModel: BaseViewModel {
     @Published var searchQuery: String = ""
-    @Published var searchState = LLTextFieldState.normal
+    @Published var searchState = CustomTextFieldState.normal
     @Published var isShowingSearch = false
     @Published var menuList: MenuList?
     

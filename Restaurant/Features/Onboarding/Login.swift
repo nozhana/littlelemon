@@ -21,6 +21,8 @@ struct Login: View {
     @FocusState private var focus: OnboardingFocus?
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject private var theme: ThemeUtil
+    
     private func clearForm() {
         firstName = ""
         lastName = ""
@@ -42,14 +44,7 @@ struct Login: View {
                 Button("Continue", systemImage: "arrow.right") {
                     dismiss()
                 }
-                .buttonStyle(.borderedProminent)
-                Button("Clear data", systemImage: "trash") {
-                    viewModel.clearData()
-                    clearForm()
-                }
-                .font(.callout.bold())
-                .imageScale(.small)
-                .buttonStyle(.bordered)
+                .buttonStyle(CustomButtonStyle(colors: theme.color, role: .prominent))
                 Spacer()
             } else {
                 Group {
@@ -60,7 +55,7 @@ struct Login: View {
                             focus = .lastName
                         }
                         .submitLabel(.next)
-                        .textFieldStyle(.llTextFieldStyle(state: $viewModel.firstNameState, content: $firstName, placeholder: "Your first name", icon: "person", errorMessage: viewModel.firstNameErrorMessage))
+                        .textFieldStyle(.customTextFieldStyle(state: $viewModel.firstNameState, content: $firstName, placeholder: "Your first name", icon: "person", errorMessage: viewModel.firstNameErrorMessage))
                     TextField("Your last name", text: $lastName)
                         .keyboardType(.namePhonePad)
                         .focused($focus, equals: .lastName)
@@ -68,7 +63,7 @@ struct Login: View {
                             focus = .email
                         }
                         .submitLabel(.next)
-                        .textFieldStyle(.llTextFieldStyle(state: $viewModel.lastNameState, content: $lastName, placeholder: "Your last name", icon: "person.fill", errorMessage: viewModel.lastNameErrorMessage))
+                        .textFieldStyle(.customTextFieldStyle(state: $viewModel.lastNameState, content: $lastName, placeholder: "Your last name", icon: "person.fill", errorMessage: viewModel.lastNameErrorMessage))
                     TextField("Your email address", text: $email)
                         .keyboardType(.emailAddress)
                         .focused($focus, equals: .email)
@@ -77,12 +72,12 @@ struct Login: View {
                             viewModel.submitForm(firstName: firstName, lastName: lastName, email: email)
                         }
                         .submitLabel(.done)
-                        .textFieldStyle(.llTextFieldStyle(state: $viewModel.emailState, content: $email, placeholder: "Your email address", icon: "envelope", errorMessage: viewModel.emailErrorMessage))
+                        .textFieldStyle(.customTextFieldStyle(state: $viewModel.emailState, content: $email, placeholder: "Your email address", icon: "envelope", errorMessage: viewModel.emailErrorMessage))
                     Button("Submit") {
                         focus = nil
                         viewModel.submitForm(firstName: firstName, lastName: lastName, email: email)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(CustomButtonStyle(colors: theme.color, role: .prominent))
                 } // Group
             } // if
         } // VStack

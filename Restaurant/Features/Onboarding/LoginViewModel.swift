@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 class LoginViewModel: BaseViewModel {
-    @Published var firstNameState = LLTextFieldState.normal
-    @Published var lastNameState = LLTextFieldState.normal
-    @Published var emailState = LLTextFieldState.normal
+    @Published var firstNameState = CustomTextFieldState.normal
+    @Published var lastNameState = CustomTextFieldState.normal
+    @Published var emailState = CustomTextFieldState.normal
     
     @Published var firstNameErrorMessage: String? = nil
     @Published var lastNameErrorMessage: String? = nil

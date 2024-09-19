@@ -72,11 +72,15 @@ struct Menu: View {
                     .clipShape(.roundedRect16)
             } // HStack
             TextField("Search items", text: $viewModel.searchQuery)
-                .textFieldStyle(.llTextFieldStyle(state: $viewModel.searchState, content: $viewModel.searchQuery, placeholder: "", icon: "magnifyingglass", fixedHeight: true))
+                .textFieldStyle(.customTextFieldStyle(state: $viewModel.searchState, content: $viewModel.searchQuery, placeholder: "", icon: "magnifyingglass", fixedHeight: true))
                 .focused($isSearchFocused)
-                .sheet(isPresented: $isShowingSearch) {
-                    isSearchFocused = false
-                } content: {
+            
+            //                .sheet(isPresented: $isShowingSearch) {
+            //                    isSearchFocused = false
+            //                } content: {
+            //                    MenuSearch(searchQuery: $viewModel.searchQuery)
+            //                }
+                .navigationDestination(isPresented: $isShowingSearch) {
                     MenuSearch(searchQuery: $viewModel.searchQuery)
                 }
                 .onTapGesture {
@@ -90,7 +94,7 @@ struct Menu: View {
     
     private var menuListView: some View {
         VStack {
-            FetchedObjects(predicate: viewModel.searchQuery.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "title BEGINSWITH[cd] %@", viewModel.searchQuery)) { (dishes: [Dish]) in
+            FetchedObjects(predicate: viewModel.searchQuery.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "title CONTAINS[cd] %@", viewModel.searchQuery)) { (dishes: [Dish]) in
                 if dishes.isEmpty {
                     ForEach(0..<10, content: { _ in
                         MenuCard(item: .placeholder)

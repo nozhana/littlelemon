@@ -12,4 +12,5 @@ protocol SurfaceColorTheme {
     var secondary: PrimitiveColor { get }
     var action: PrimitiveColor { get }
     var hero: PrimitiveColor { get }
+    var error: PrimitiveColor { get }
 }
