@@ -80,6 +80,7 @@ struct Profile: View {
     private var logoutActions: some View {
         Button("Cancel", role: .cancel) {}
         Button("Logout", role: .destructive) {
+            viewModel.updateProfileImage(nil)
             homeViewModel.logOut()
         }
     }

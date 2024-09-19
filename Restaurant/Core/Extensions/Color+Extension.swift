@@ -44,10 +44,8 @@ extension Color {
 fileprivate func resolveHexCharacter(_ character: Character) -> Int? {
     if let intValue = Int(String(character)) {
         return intValue
-    } else if let hexDigit = HexDigit(hex: character) {
-        return hexDigit.rawValue
     } else {
-        return nil
+        return HexDigit(hex: character)?.rawValue
     }
 }
 

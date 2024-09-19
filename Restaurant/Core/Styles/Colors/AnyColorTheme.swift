@@ -8,9 +8,9 @@
 import Foundation
 
 struct AnyColorTheme: ColorTheme {
-    private let theme: ColorTheme
+    private let theme: any ColorTheme
     
-    init(_ colorTheme: ColorTheme) {
+    init(_ colorTheme: some ColorTheme) {
         self.theme = colorTheme
     }
     

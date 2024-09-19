@@ -1,5 +1,5 @@
 //
-//  Injector.swift
+//  Inject.swift
 //  Restaurant
 //
 //  Created by Nozhan Amiri on 6/11/24.

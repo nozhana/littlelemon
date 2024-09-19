@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum PrimitiveColor {
+enum PrimitiveColor: Primitive {
     case nandor
     case ripeLemon
     case apricot, apricot50, apricot24

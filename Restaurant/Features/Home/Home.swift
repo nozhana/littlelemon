@@ -16,25 +16,17 @@ struct Home: View {
     @Inject(\.theme) private var theme
     
     var body: some View {
-//        TabView(selection: $viewModel.selectedTab) {
-//            Menu()
-//                .tabItem { HomeTab.menu.label }
-//                .tag(HomeTab.menu)
-//            Profile()
-//                .tabItem { HomeTab.profile.label }
-//                .tag(HomeTab.profile)
-//        } // TabView
         Menu()
             .environment(\.managedObjectContext, persistence.container.viewContext)
             .environmentObject(viewModel)
-            .sheet(isPresented: $viewModel.isShowingOnboarding, content: Onboarding.init)
+            .sheet(isPresented: $viewModel.isShowingOnboarding, content: OnboardingTabView.init)
             .snackbar($snackbar.isShowingSnackbar, configuration: snackbar.configuration)
             .environmentObject(theme)
             .onChange(of: colorScheme) { newValue in
-                theme.color = newValue == .dark ? .dark : .light
+                theme.apply(newValue)
             }
             .onAppear {
-                theme.color = colorScheme == .dark ? .dark : .light
+                theme.apply(colorScheme)
             }
     }
 }

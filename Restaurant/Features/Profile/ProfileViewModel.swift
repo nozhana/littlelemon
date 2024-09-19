@@ -28,7 +28,12 @@ class ProfileViewModel: BaseViewModel {
         self.objectWillChange.send()
     }
     
-    func updateProfileImage(_ image: UIImage) {
+    func updateProfileImage(_ image: UIImage?) {
+        guard let image else {
+            fileUtil.delete(image: "profile_image")
+            return
+        }
+        
         fileUtil.write(image, name: "profile_image")
         self.objectWillChange.send()
     }

@@ -23,10 +23,21 @@
 		3169E4E92C1ED0F20064FA7E /* MenuSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169E4E82C1ED0F20064FA7E /* MenuSearch.swift */; };
 		316BCEE02C21C30E00F19E69 /* MenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCEDF2C21C30E00F19E69 /* MenuCard.swift */; };
 		318040212C162C0900B507D7 /* Validator+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318040202C162C0900B507D7 /* Validator+Combine.swift */; };
-		318040232C162DF200B507D7 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318040222C162DF200B507D7 /* Onboarding.swift */; };
+		318040232C162DF200B507D7 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318040222C162DF200B507D7 /* Login.swift */; };
+		318BB2C72C988E020084139C /* OnboardingWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BB2C62C988E020084139C /* OnboardingWelcome.swift */; };
+		318BB2C92C988E190084139C /* OnboardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BB2C82C988E190084139C /* OnboardingTabView.swift */; };
+		318BB2CB2C988EC60084139C /* OnboardingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BB2CA2C988EC60084139C /* OnboardingInfo.swift */; };
+		318C56CC2C9AF27C00ED407D /* GradientTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C56CB2C9AF27C00ED407D /* GradientTheme.swift */; };
+		318C56CE2C9AF2B200ED407D /* PrimitiveGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C56CD2C9AF2B200ED407D /* PrimitiveGradient.swift */; };
+		318C56D02C9AF2EE00ED407D /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C56CF2C9AF2EE00ED407D /* Gradients.swift */; };
+		318C56D42C9AF3CD00ED407D /* Gradient+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C56D32C9AF3CD00ED407D /* Gradient+Extension.swift */; };
+		318C56D62C9AF4F100ED407D /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C56D52C9AF4F100ED407D /* Primitive.swift */; };
+		318C56D82C9AF53300ED407D /* Themable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C56D72C9AF53300ED407D /* Themable.swift */; };
+		318C56DA2C9AF8EA00ED407D /* AnyGradientTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C56D92C9AF8EA00ED407D /* AnyGradientTheme.swift */; };
+		318C56DC2C9AFD3800ED407D /* ShapeStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C56DB2C9AFD3800ED407D /* ShapeStyle+Extension.swift */; };
 		3199F1732C159F2200EF666C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199F1722C159F2200EF666C /* Validator.swift */; };
 		3199F1772C15AFA300EF666C /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199F1762C15AFA300EF666C /* Validators.swift */; };
-		3199F1832C15DD7100EF666C /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199F1822C15DD7100EF666C /* OnboardingViewModel.swift */; };
+		3199F1832C15DD7100EF666C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199F1822C15DD7100EF666C /* LoginViewModel.swift */; };
 		3199F18A2C15EAA000EF666C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199F1892C15EAA000EF666C /* BaseViewModel.swift */; };
 		319CF16E2C20C12700E5AD59 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CF16D2C20C12700E5AD59 /* MenuList.swift */; };
 		319CF1702C20C24E00E5AD59 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CF16F2C20C24E00E5AD59 /* MenuItem.swift */; };
@@ -41,7 +52,7 @@
 		319CF18C2C20D19B00E5AD59 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 319CF18A2C20D19B00E5AD59 /* ExampleDatabase.xcdatamodeld */; };
 		319CF18E2C20D61200E5AD59 /* Combine+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CF18D2C20D61200E5AD59 /* Combine+Extension.swift */; };
 		31C799CC2C1849A000F7FE55 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799CB2C1849A000F7FE55 /* Factory.swift */; };
-		31C799D02C185A2700F7FE55 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799CF2C185A2700F7FE55 /* Injector.swift */; };
+		31C799D02C185A2700F7FE55 /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799CF2C185A2700F7FE55 /* Inject.swift */; };
 		31C799D42C186A7100F7FE55 /* DefaultsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799D32C186A7000F7FE55 /* DefaultsContainer.swift */; };
 		31C799D82C18892000F7FE55 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799D72C18892000F7FE55 /* UserDefaults+Extension.swift */; };
 		31C799E02C18C0A800F7FE55 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C799DF2C18C0A800F7FE55 /* Repository.swift */; };
@@ -104,10 +115,21 @@
 		3169E4E82C1ED0F20064FA7E /* MenuSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSearch.swift; sourceTree = "<group>"; };
 		316BCEDF2C21C30E00F19E69 /* MenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCard.swift; sourceTree = "<group>"; };
 		318040202C162C0900B507D7 /* Validator+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Validator+Combine.swift"; sourceTree = "<group>"; };
-		318040222C162DF200B507D7 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		318040222C162DF200B507D7 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		318BB2C62C988E020084139C /* OnboardingWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcome.swift; sourceTree = "<group>"; };
+		318BB2C82C988E190084139C /* OnboardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTabView.swift; sourceTree = "<group>"; };
+		318BB2CA2C988EC60084139C /* OnboardingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInfo.swift; sourceTree = "<group>"; };
+		318C56CB2C9AF27C00ED407D /* GradientTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTheme.swift; sourceTree = "<group>"; };
+		318C56CD2C9AF2B200ED407D /* PrimitiveGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveGradient.swift; sourceTree = "<group>"; };
+		318C56CF2C9AF2EE00ED407D /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		318C56D32C9AF3CD00ED407D /* Gradient+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Extension.swift"; sourceTree = "<group>"; };
+		318C56D52C9AF4F100ED407D /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
+		318C56D72C9AF53300ED407D /* Themable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themable.swift; sourceTree = "<group>"; };
+		318C56D92C9AF8EA00ED407D /* AnyGradientTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyGradientTheme.swift; sourceTree = "<group>"; };
+		318C56DB2C9AFD3800ED407D /* ShapeStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeStyle+Extension.swift"; sourceTree = "<group>"; };
 		3199F1722C159F2200EF666C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		3199F1762C15AFA300EF666C /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
-		3199F1822C15DD7100EF666C /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		3199F1822C15DD7100EF666C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3199F1892C15EAA000EF666C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		319CF16D2C20C12700E5AD59 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
 		319CF16F2C20C24E00E5AD59 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -122,7 +144,7 @@
 		319CF18B2C20D19B00E5AD59 /* ExampleDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExampleDatabase.xcdatamodel; sourceTree = "<group>"; };
 		319CF18D2C20D61200E5AD59 /* Combine+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extension.swift"; sourceTree = "<group>"; };
 		31C799CB2C1849A000F7FE55 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
-		31C799CF2C185A2700F7FE55 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
+		31C799CF2C185A2700F7FE55 /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		31C799D32C186A7000F7FE55 /* DefaultsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsContainer.swift; sourceTree = "<group>"; };
 		31C799D72C18892000F7FE55 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		31C799DF2C18C0A800F7FE55 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -255,8 +277,11 @@
 		316487E52C14F9A000CAA8A8 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				3199F1822C15DD7100EF666C /* OnboardingViewModel.swift */,
-				318040222C162DF200B507D7 /* Onboarding.swift */,
+				3199F1822C15DD7100EF666C /* LoginViewModel.swift */,
+				318040222C162DF200B507D7 /* Login.swift */,
+				318BB2C62C988E020084139C /* OnboardingWelcome.swift */,
+				318BB2CA2C988EC60084139C /* OnboardingInfo.swift */,
+				318BB2C82C988E190084139C /* OnboardingTabView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -270,6 +295,8 @@
 				3169E4E62C1E572E0064FA7E /* Image+Extension.swift */,
 				319CF18D2C20D61200E5AD59 /* Combine+Extension.swift */,
 				31D363F12C22143400B84BD3 /* Color+Extension.swift */,
+				318C56D32C9AF3CD00ED407D /* Gradient+Extension.swift */,
+				318C56DB2C9AFD3800ED407D /* ShapeStyle+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +304,7 @@
 		316487E92C15001900CAA8A8 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				318C56CA2C9AF24D00ED407D /* Gradients */,
 				31D364162C2334A700B84BD3 /* Snackbar */,
 				31D363ED2C2210F200B84BD3 /* Colors */,
 				31E02CD12C1C3D6D00FD8E0C /* Fonts */,
@@ -316,6 +344,17 @@
 				319CF1872C20CF5800E5AD59 /* FetchedObjects.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		318C56CA2C9AF24D00ED407D /* Gradients */ = {
+			isa = PBXGroup;
+			children = (
+				318C56CB2C9AF27C00ED407D /* GradientTheme.swift */,
+				318C56D92C9AF8EA00ED407D /* AnyGradientTheme.swift */,
+				318C56CF2C9AF2EE00ED407D /* Gradients.swift */,
+				318C56CD2C9AF2B200ED407D /* PrimitiveGradient.swift */,
+			);
+			path = Gradients;
 			sourceTree = "<group>";
 		};
 		3199F16E2C159EFC00EF666C /* Abstraction */ = {
@@ -419,7 +458,7 @@
 			children = (
 				31C799CB2C1849A000F7FE55 /* Factory.swift */,
 				31C799DF2C18C0A800F7FE55 /* Repository.swift */,
-				31C799CF2C185A2700F7FE55 /* Injector.swift */,
+				31C799CF2C185A2700F7FE55 /* Inject.swift */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";
@@ -564,6 +603,8 @@
 			isa = PBXGroup;
 			children = (
 				31F6380D2C235DDF004837B5 /* ThemeUtil.swift */,
+				318C56D52C9AF4F100ED407D /* Primitive.swift */,
+				318C56D72C9AF53300ED407D /* Themable.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -659,17 +700,22 @@
 				318040212C162C0900B507D7 /* Validator+Combine.swift in Sources */,
 				3169E4E92C1ED0F20064FA7E /* MenuSearch.swift in Sources */,
 				3199F18A2C15EAA000EF666C /* BaseViewModel.swift in Sources */,
+				318C56CE2C9AF2B200ED407D /* PrimitiveGradient.swift in Sources */,
+				318C56DC2C9AFD3800ED407D /* ShapeStyle+Extension.swift in Sources */,
 				31C799D82C18892000F7FE55 /* UserDefaults+Extension.swift in Sources */,
 				3167D91E2C245A8200555410 /* FullscreenSnackbarStyle.swift in Sources */,
 				31D364232C23393100B84BD3 /* AnySnackbarStyle.swift in Sources */,
+				318BB2CB2C988EC60084139C /* OnboardingInfo.swift in Sources */,
 				319CF18C2C20D19B00E5AD59 /* ExampleDatabase.xcdatamodeld in Sources */,
 				310CD92B2C24F57B000D092C /* MenuDetail.swift in Sources */,
+				318BB2C92C988E190084139C /* OnboardingTabView.swift in Sources */,
 				31F6380E2C235DDF004837B5 /* ThemeUtil.swift in Sources */,
 				319CF1702C20C24E00E5AD59 /* MenuItem.swift in Sources */,
 				31E02CAF2C1B773B00FD8E0C /* MenuViewModel.swift in Sources */,
 				319CF18E2C20D61200E5AD59 /* Combine+Extension.swift in Sources */,
 				31D363F92C232CBE00B84BD3 /* PrimitiveColor.swift in Sources */,
 				319CF1862C20CEFA00E5AD59 /* PersistenceController.swift in Sources */,
+				318C56DA2C9AF8EA00ED407D /* AnyGradientTheme.swift in Sources */,
 				31E02CA32C1B74EC00FD8E0C /* Home.swift in Sources */,
 				319CF1812C20CCB400E5AD59 /* MenuService.swift in Sources */,
 				31E02CBC2C1B86AF00FD8E0C /* HomeTab.swift in Sources */,
@@ -677,17 +723,19 @@
 				316487F12C15050500CAA8A8 /* Shape+Extension.swift in Sources */,
 				31D364032C232D3200B84BD3 /* StrokeColorTheme.swift in Sources */,
 				3199F1772C15AFA300EF666C /* Validators.swift in Sources */,
+				318C56D02C9AF2EE00ED407D /* Gradients.swift in Sources */,
 				31D363F72C22EA4500B84BD3 /* NetworkingMiddleware.swift in Sources */,
 				319CF17D2C20C63400E5AD59 /* RequestMethod.swift in Sources */,
 				31D364092C232DB200B84BD3 /* TextColors.swift in Sources */,
 				31D3641F2C23378500B84BD3 /* DefaultSnackbarStyle.swift in Sources */,
 				31D3640D2C232DD400B84BD3 /* StrokeColors.swift in Sources */,
 				31E02CAD2C1B773200FD8E0C /* Menu.swift in Sources */,
-				318040232C162DF200B507D7 /* Onboarding.swift in Sources */,
+				318C56D82C9AF53300ED407D /* Themable.swift in Sources */,
+				318040232C162DF200B507D7 /* Login.swift in Sources */,
 				3199F1732C159F2200EF666C /* Validator.swift in Sources */,
 				31C799E02C18C0A800F7FE55 /* Repository.swift in Sources */,
 				319CF17B2C20C3FC00E5AD59 /* NetworkingError.swift in Sources */,
-				3199F1832C15DD7100EF666C /* OnboardingViewModel.swift in Sources */,
+				3199F1832C15DD7100EF666C /* LoginViewModel.swift in Sources */,
 				31D364012C232D2400B84BD3 /* IconColorTheme.swift in Sources */,
 				31D364052C232D4000B84BD3 /* AnyColorTheme.swift in Sources */,
 				31D363F22C22143400B84BD3 /* Color+Extension.swift in Sources */,
@@ -697,22 +745,26 @@
 				31D364132C23307500B84BD3 /* NetworkingLoggingMiddleware.swift in Sources */,
 				31E02CE82C1C9EF300FD8E0C /* EditProfileForm.swift in Sources */,
 				319CF1772C20C31A00E5AD59 /* Service.swift in Sources */,
-				31C799D02C185A2700F7FE55 /* Injector.swift in Sources */,
+				31C799D02C185A2700F7FE55 /* Inject.swift in Sources */,
 				31D3641D2C23363700B84BD3 /* SnackbarConfiguration.swift in Sources */,
 				31D364152C2333FA00B84BD3 /* SnackbarViewModifier.swift in Sources */,
 				31D364212C2338DB00B84BD3 /* SnackbarStyleEnvironmentKey.swift in Sources */,
+				318C56D42C9AF3CD00ED407D /* Gradient+Extension.swift in Sources */,
 				316487EB2C15003300CAA8A8 /* LLTextFieldStyle.swift in Sources */,
 				31D363FF2C232D1400B84BD3 /* TextColorTheme.swift in Sources */,
 				31D364182C2334AC00B84BD3 /* SnackbarStyle.swift in Sources */,
 				3167D91C2C2441F500555410 /* SnackbarController.swift in Sources */,
 				316487ED2C15014B00CAA8A8 /* LLTextFieldState.swift in Sources */,
 				3169E4D92C1DB3090064FA7E /* FileUtil.swift in Sources */,
+				318BB2C72C988E020084139C /* OnboardingWelcome.swift in Sources */,
 				31E02CA82C1B768B00FD8E0C /* BaseTabItem.swift in Sources */,
 				31D363FD2C232CFF00B84BD3 /* SurfaceColorTheme.swift in Sources */,
+				318C56CC2C9AF27C00ED407D /* GradientTheme.swift in Sources */,
 				313818E82C7782CD0069928C /* ShimmerModifier.swift in Sources */,
 				31C799CC2C1849A000F7FE55 /* Factory.swift in Sources */,
 				31D3640B2C232DC300B84BD3 /* IconColors.swift in Sources */,
 				316BCEE02C21C30E00F19E69 /* MenuCard.swift in Sources */,
+				318C56D62C9AF4F100ED407D /* Primitive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

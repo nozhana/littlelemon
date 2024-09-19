@@ -7,15 +7,9 @@
 
 import SwiftUI
 
-protocol ColorTheme {
+protocol ColorTheme: Themable<PrimitiveColor> {
     var surface: SurfaceColorTheme { get }
     var text: TextColorTheme { get }
     var icon: IconColorTheme { get }
     var stroke: StrokeColorTheme { get }
-}
-
-extension ColorTheme {
-    subscript(_ keyPath: KeyPath<ColorTheme, PrimitiveColor>) -> Color {
-        self[keyPath: keyPath].value
-    }
 }

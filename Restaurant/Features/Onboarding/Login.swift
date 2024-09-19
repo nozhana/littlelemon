@@ -1,5 +1,5 @@
 //
-//  Onboarding.swift
+//  Login.swift
 //  Restaurant
 //
 //  Created by Nozhan Amiri on 6/9/24.
@@ -11,8 +11,8 @@ enum OnboardingFocus {
     case firstName, lastName, email
 }
 
-struct Onboarding: View {
-    @StateObject private var viewModel = Inject[\.onboardingViewModel]
+struct Login: View {
+    @StateObject private var viewModel = Inject[\.loginViewModel]
     
     @State private var firstName: String = ""
     @State private var lastName: String = ""
@@ -35,6 +35,7 @@ struct Onboarding: View {
                 .frame(width: 240)
             if viewModel.isOnboarded,
                !viewModel.firstName.isEmpty {
+                Spacer()
                 Text("Welcome, \(viewModel.firstName.capitalized)!")
                     .font(.displayLarge)
                 Spacer()
@@ -49,6 +50,7 @@ struct Onboarding: View {
                 .font(.callout.bold())
                 .imageScale(.small)
                 .buttonStyle(.bordered)
+                Spacer()
             } else {
                 Group {
                     TextField("Your first name", text: $firstName)
@@ -91,5 +93,5 @@ struct Onboarding: View {
 }
 
 #Preview {
-    Onboarding()
+    Login()
 }

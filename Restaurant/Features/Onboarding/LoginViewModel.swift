@@ -1,5 +1,5 @@
 //
-//  OnboardingViewModel.swift
+//  LoginViewModel.swift
 //  Restaurant
 //
 //  Created by Nozhan Amiri on 6/9/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class OnboardingViewModel: BaseViewModel {
+class LoginViewModel: BaseViewModel {
     @Published var firstNameState = LLTextFieldState.normal
     @Published var lastNameState = LLTextFieldState.normal
     @Published var emailState = LLTextFieldState.normal
@@ -157,8 +157,8 @@ extension DefaultsContainer {
 }
 
 extension Container {
-    var onboardingViewModel: Factory<OnboardingViewModel> {
-        self { OnboardingViewModel() }
+    var loginViewModel: Factory<LoginViewModel> {
+        self { LoginViewModel() }
             .unique
     }
 }

@@ -43,4 +43,37 @@ extension Font {
     static var tagline: Font {
         .custom("Karla-Medium", size: 14)
     }
+    
+    static func markaziText(_ size: Double, weight: Font.Weight = .regular) -> Font {
+        .custom(weight.markaziTextName, size: size)
+    }
+    
+    static func karla(_ size: Double, weight: Font.Weight = .regular) -> Font {
+        .custom(weight.karlaName, size: size)
+    }
+}
+
+
+extension Font.Weight {
+    var markaziTextName: String {
+        switch self {
+        case .black, .heavy, .bold, .semibold, .medium:
+            return "MarkaziText-Medium"
+        default:
+            return "MarkaziText-Regular"
+        }
+    }
+    
+    var karlaName: String {
+        switch self {
+        case .black, .heavy:
+            return "Karla-ExtraBold"
+        case .bold:
+            return "Karla-Bold"
+        case .semibold, .medium:
+            return "Karla-Medium"
+        default:
+            return "Karla-Regular"
+        }
+    }
 }
