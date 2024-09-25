@@ -17,6 +17,11 @@ struct OnboardingInfo: View {
             
             Spacer()
             
+            ParallaxFoods()
+                .padding(.horizontal, 32)
+            
+            Spacer()
+            
             Text("Made with ❤️")
                 .font(.tagline)
                 .tint(theme.color[\.text.secondary])

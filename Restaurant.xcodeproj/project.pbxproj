@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		310CD92B2C24F57B000D092C /* MenuDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310CD92A2C24F57B000D092C /* MenuDetail.swift */; };
+		311255502C9DA6F1003B9878 /* LoopIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112554F2C9DA6F1003B9878 /* LoopIterator.swift */; };
 		313818E82C7782CD0069928C /* ShimmerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313818E72C7782CD0069928C /* ShimmerModifier.swift */; };
 		313818EC2C7954CF0069928C /* MenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313818EB2C7954CF0069928C /* MenuCategory.swift */; };
 		315C33802BBEDDDA00EB84CE /* RestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C337F2BBEDDDA00EB84CE /* RestaurantApp.swift */; };
@@ -15,6 +16,9 @@
 		315C33872BBEDDDC00EB84CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315C33862BBEDDDC00EB84CE /* Preview Assets.xcassets */; };
 		316056012C9C49C000711475 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316056002C9C49C000711475 /* CustomButtonStyle.swift */; };
 		316056032C9C4D6200711475 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316056022C9C4D6200711475 /* View+Extension.swift */; };
+		316056062C9C6E4400711475 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316056052C9C6E4400711475 /* MotionManager.swift */; };
+		316056082C9C6FB900711475 /* ParallaxFoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316056072C9C6FB900711475 /* ParallaxFoods.swift */; };
+		3160560A2C9C7CEA00711475 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316056092C9C7CEA00711475 /* Transition+Extension.swift */; };
 		316487EB2C15003300CAA8A8 /* CustomTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316487EA2C15003300CAA8A8 /* CustomTextFieldStyle.swift */; };
 		316487ED2C15014B00CAA8A8 /* CustomTextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316487EC2C15014B00CAA8A8 /* CustomTextFieldState.swift */; };
 		316487F12C15050500CAA8A8 /* Shape+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316487F02C15050500CAA8A8 /* Shape+Extension.swift */; };
@@ -101,6 +105,7 @@
 
 /* Begin PBXFileReference section */
 		310CD92A2C24F57B000D092C /* MenuDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetail.swift; sourceTree = "<group>"; };
+		3112554F2C9DA6F1003B9878 /* LoopIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopIterator.swift; sourceTree = "<group>"; };
 		313818E72C7782CD0069928C /* ShimmerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerModifier.swift; sourceTree = "<group>"; };
 		313818EB2C7954CF0069928C /* MenuCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategory.swift; sourceTree = "<group>"; };
 		315C337C2BBEDDDA00EB84CE /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +114,9 @@
 		315C33862BBEDDDC00EB84CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		316056002C9C49C000711475 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		316056022C9C4D6200711475 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		316056052C9C6E4400711475 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		316056072C9C6FB900711475 /* ParallaxFoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxFoods.swift; sourceTree = "<group>"; };
+		316056092C9C7CEA00711475 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 		316487EA2C15003300CAA8A8 /* CustomTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyle.swift; sourceTree = "<group>"; };
 		316487EC2C15014B00CAA8A8 /* CustomTextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldState.swift; sourceTree = "<group>"; };
 		316487F02C15050500CAA8A8 /* Shape+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+Extension.swift"; sourceTree = "<group>"; };
@@ -205,6 +213,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3112554E2C9DA6E2003B9878 /* Iterator */ = {
+			isa = PBXGroup;
+			children = (
+				3112554F2C9DA6F1003B9878 /* LoopIterator.swift */,
+			);
+			path = Iterator;
+			sourceTree = "<group>";
+		};
 		313818E62C7782A80069928C /* Shimmer */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,9 +275,18 @@
 			path = CustomButton;
 			sourceTree = "<group>";
 		};
+		316056042C9C6E3C00711475 /* MotionManager */ = {
+			isa = PBXGroup;
+			children = (
+				316056052C9C6E4400711475 /* MotionManager.swift */,
+			);
+			path = MotionManager;
+			sourceTree = "<group>";
+		};
 		316487E32C14F98E00CAA8A8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3112554E2C9DA6E2003B9878 /* Iterator */,
 				31AD06322C16EAB100DD614A /* Util */,
 				3180401C2C160C9B00B507D7 /* Views */,
 				31E02CD72C1C4B3300FD8E0C /* ViewModifiers */,
@@ -293,6 +318,7 @@
 				318040222C162DF200B507D7 /* Login.swift */,
 				318BB2C62C988E020084139C /* OnboardingWelcome.swift */,
 				318BB2CA2C988EC60084139C /* OnboardingInfo.swift */,
+				316056072C9C6FB900711475 /* ParallaxFoods.swift */,
 				318BB2C82C988E190084139C /* OnboardingTabView.swift */,
 			);
 			path = Onboarding;
@@ -310,6 +336,7 @@
 				318C56D32C9AF3CD00ED407D /* Gradient+Extension.swift */,
 				318C56DB2C9AFD3800ED407D /* ShapeStyle+Extension.swift */,
 				316056022C9C4D6200711475 /* View+Extension.swift */,
+				316056092C9C7CEA00711475 /* Transition+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -448,6 +475,7 @@
 		31AD06322C16EAB100DD614A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				316056042C9C6E3C00711475 /* MotionManager */,
 				3167D91A2C2441EB00555410 /* Snackbar */,
 				31F6380C2C235DD4004837B5 /* Theme */,
 				319CF1822C20CEE200E5AD59 /* Persistence */,
@@ -702,6 +730,7 @@
 				316056012C9C49C000711475 /* CustomButtonStyle.swift in Sources */,
 				319CF1882C20CF5800E5AD59 /* FetchedObjects.swift in Sources */,
 				31E02CA52C1B74F300FD8E0C /* HomeViewModel.swift in Sources */,
+				311255502C9DA6F1003B9878 /* LoopIterator.swift in Sources */,
 				319CF1792C20C39E00E5AD59 /* URLSessionCombineNetworker.swift in Sources */,
 				31D363FB2C232CE600B84BD3 /* ColorTheme.swift in Sources */,
 				31E02CBA2C1B815E00FD8E0C /* Profile.swift in Sources */,
@@ -713,6 +742,7 @@
 				31C799D42C186A7100F7FE55 /* DefaultsContainer.swift in Sources */,
 				31D364102C23305400B84BD3 /* AnyNetworkingMiddleware.swift in Sources */,
 				318040212C162C0900B507D7 /* Validator+Combine.swift in Sources */,
+				3160560A2C9C7CEA00711475 /* Transition+Extension.swift in Sources */,
 				3169E4E92C1ED0F20064FA7E /* MenuSearch.swift in Sources */,
 				3199F18A2C15EAA000EF666C /* BaseViewModel.swift in Sources */,
 				318C56CE2C9AF2B200ED407D /* PrimitiveGradient.swift in Sources */,
@@ -753,6 +783,7 @@
 				319CF17B2C20C3FC00E5AD59 /* NetworkingError.swift in Sources */,
 				3199F1832C15DD7100EF666C /* LoginViewModel.swift in Sources */,
 				31D364012C232D2400B84BD3 /* IconColorTheme.swift in Sources */,
+				316056082C9C6FB900711475 /* ParallaxFoods.swift in Sources */,
 				31D364052C232D4000B84BD3 /* AnyColorTheme.swift in Sources */,
 				31D363F22C22143400B84BD3 /* Color+Extension.swift in Sources */,
 				31E02CB92C1B815E00FD8E0C /* ProfileViewModel.swift in Sources */,
@@ -773,6 +804,7 @@
 				316487ED2C15014B00CAA8A8 /* CustomTextFieldState.swift in Sources */,
 				3169E4D92C1DB3090064FA7E /* FileUtil.swift in Sources */,
 				318BB2C72C988E020084139C /* OnboardingWelcome.swift in Sources */,
+				316056062C9C6E4400711475 /* MotionManager.swift in Sources */,
 				31E02CA82C1B768B00FD8E0C /* BaseTabItem.swift in Sources */,
 				31D363FD2C232CFF00B84BD3 /* SurfaceColorTheme.swift in Sources */,
 				318C56CC2C9AF27C00ED407D /* GradientTheme.swift in Sources */,

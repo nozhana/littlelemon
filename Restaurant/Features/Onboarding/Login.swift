@@ -82,8 +82,6 @@ struct Login: View {
             } // if
         } // VStack
         .padding()
-//        .frame(height: 360, alignment: .top)
-        .interactiveDismissDisabled()
     }
 }
 

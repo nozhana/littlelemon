@@ -74,12 +74,6 @@ struct Menu: View {
             TextField("Search items", text: $viewModel.searchQuery)
                 .textFieldStyle(.customTextFieldStyle(state: $viewModel.searchState, content: $viewModel.searchQuery, placeholder: "", icon: "magnifyingglass", fixedHeight: true))
                 .focused($isSearchFocused)
-            
-            //                .sheet(isPresented: $isShowingSearch) {
-            //                    isSearchFocused = false
-            //                } content: {
-            //                    MenuSearch(searchQuery: $viewModel.searchQuery)
-            //                }
                 .navigationDestination(isPresented: $isShowingSearch) {
                     MenuSearch(searchQuery: $viewModel.searchQuery)
                 }

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "FriedChicken.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
